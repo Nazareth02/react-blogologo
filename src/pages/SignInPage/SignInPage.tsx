@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { ROUTES } from "routes/routes";
+import { ROUTES } from "routes";
 
 export const SignInPage = () => {
   const navigate = useNavigate();

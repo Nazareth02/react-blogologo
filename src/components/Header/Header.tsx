@@ -1,8 +1,8 @@
 import { FavoritesActiveIcon, Logo } from "assets";
 import { Link } from "react-router-dom";
-import { ROUTES } from "routes/routes";
-import { Nav } from "../../components/Nav/Nav";
+import { Nav } from "components";
 import { StyledHeader } from "./styles";
+import { ROUTES } from "routes";
 
 export const Header = () => {
   return (

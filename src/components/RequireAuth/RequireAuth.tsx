@@ -1,5 +1,5 @@
 import { Outlet, Navigate } from "react-router-dom";
-import { ROUTES } from "routes/routes";
+import { ROUTES } from "routes";
 
 export const RequireAuth = () => {
   const isAuth = true;

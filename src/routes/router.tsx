@@ -1,6 +1,6 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import { ROUTES } from "./routes";
-import { RequireAuth } from "components/RequireAuth/RequireAuth";
+import { RequireAuth } from "components";
 import {
   HomePage,
   SearchPage,
@@ -9,7 +9,7 @@ import {
   SignUpPage,
   FavoritesPage,
 } from "pages";
-import { MainTemplate } from "templates/MainTemplate/MainTemplate";
+import { MainTemplate } from "templates/MainTemplate";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,4 +24,5 @@ export const router = createBrowserRouter(
       </Route>
     </Route>
   )
+  // { basename: "/react-blogologo" }
 );
