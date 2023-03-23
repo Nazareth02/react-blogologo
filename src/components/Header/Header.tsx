@@ -1,4 +1,4 @@
-import { FavoritesActiveIcon, Logo } from "assets";
+import { LogoIcon } from "assets";
 import { Link } from "react-router-dom";
 import { Nav } from "components";
 import { StyledHeader } from "./styles";
@@ -8,10 +8,7 @@ export const Header = () => {
   return (
     <StyledHeader>
       <Link to={ROUTES.HOME}>
-        <Logo />
-      </Link>
-      <Link to={ROUTES.FAVORITES}>
-        <FavoritesActiveIcon />
+        <LogoIcon />
       </Link>
       <Nav />
     </StyledHeader>

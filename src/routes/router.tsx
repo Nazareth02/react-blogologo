@@ -10,6 +10,7 @@ import {
   FavoritesPage,
 } from "pages";
 import { MainTemplate } from "templates/MainTemplate";
+import { AccountPage } from "pages/AccountPage/AccountPage";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ export const router = createBrowserRouter(
       <Route path={ROUTES.CONTENT} element={<ContentPage />} />
       <Route path={ROUTES.SIGN_IN} element={<SignInPage />} />
       <Route path={ROUTES.SIGN_UP} element={<SignUpPage />} />
+      <Route path={ROUTES.ACCOUNT} element={<AccountPage />} />
       <Route element={<RequireAuth />}>
         <Route path={ROUTES.FAVORITES} element={<FavoritesPage />} />
       </Route>
