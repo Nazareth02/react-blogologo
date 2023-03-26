@@ -1,12 +1,14 @@
 import { Outlet } from "react-router-dom";
 import { Footer, Header } from "components";
-import { StyledMainTemplate } from "./styles";
+import { OutlerWrap, StyledMainTemplate } from "./styles";
 
 export const MainTemplate = () => {
   return (
     <StyledMainTemplate>
       <Header />
-      <Outlet />
+      <OutlerWrap>
+        <Outlet />
+      </OutlerWrap>
       <Footer />
     </StyledMainTemplate>
   );

@@ -4,7 +4,7 @@ import { Color } from "ui";
 const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 20px 32px;
   background: ${Color.WHITE};
 `;
 
