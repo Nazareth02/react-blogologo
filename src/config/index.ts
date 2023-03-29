@@ -1,3 +1,4 @@
-import { TabsValues } from "./TabsConfig";
+import { options } from "./selectConfig";
+import { TabsValues } from "./tabsConfig";
 
-export { TabsValues };
+export { TabsValues, options };

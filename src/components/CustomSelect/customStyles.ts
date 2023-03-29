@@ -1,27 +1,40 @@
 import { StylesConfig } from "react-select";
+import { Color } from "ui";
 
 const customStyles: StylesConfig = {
   control: (baseStyles) => ({
     ...baseStyles,
+    maxWidth: "300px",
+    minWidth: "250px",
     background: "#FFFFFF",
-    border: "1px solid #EEEEEE",
-    borderRadius: "5px",
-    maxWidth: "256px",
+    border: "1px solid transparent",
+    borderRadius: "4px",
     fontFamily: "Inter",
     fontStyle: "normal",
     fontWeight: 400,
-    fontSize: "12px",
+    fontSize: "14px",
     lineHeight: "15px",
     color: "#000000",
     boxSizing: "border-box",
+    cursor: "pointer",
   }),
   container: (baseStyles) => ({
+    justifySelf: "end",
+    maxWidth: 300,
     fontFamily: "Inter",
     fontStyle: "normal",
     fontWeight: 500,
-    fontSize: "16px",
-    lineHeight: "24px",
+    fontSize: 16,
+    lineHeight: 3,
     ...baseStyles,
+  }),
+  menuPortal: (baseStyles) => ({
+    ...baseStyles,
+    paddingTop: "25px",
+    fontFamily: "Inter",
+    fontStyle: "normal",
+    fontWeight: 500,
+    fontSize: 16,
   }),
   indicatorSeparator: (baseStyles) => ({
     ...baseStyles,

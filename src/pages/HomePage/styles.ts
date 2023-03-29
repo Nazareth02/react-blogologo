@@ -16,7 +16,7 @@ const Title = styled.span`
 const TabsGroup = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  max-width: 282px;
+  width: 100%;
   grid-gap: 40px;
   text-align: center;
 
@@ -29,6 +29,9 @@ const StyledHomePage = styled.div`
   margin: 0 auto;
 `;
 
-const SortWidgetsGroup = styled.div``;
+const SortWidgetsGroup = styled.div`
+  display: grid;
+  gap: 25px;
+`;
 
 export { Title, TabsGroup, StyledHomePage, SortWidgetsGroup };
