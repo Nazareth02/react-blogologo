@@ -1,3 +1,3 @@
-import { SelectOptions } from "./types";
+import { SelectOptions, TabOptions } from "./types";
 
-export type { SelectOptions };
+export type { SelectOptions, TabOptions };
