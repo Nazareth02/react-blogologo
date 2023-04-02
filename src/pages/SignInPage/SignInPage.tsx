@@ -11,7 +11,7 @@ export const SignInPage = () => {
       </span>
       <h2>Sign In</h2>
       <span>
-        Don’t have an account?
+        Don't have an account?
         <Link to={ROUTES.HOME + ROUTES.SIGN_UP}> Sign Up</Link>
       </span>
     </div>

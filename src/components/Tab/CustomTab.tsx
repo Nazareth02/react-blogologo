@@ -1,5 +1,4 @@
 import { Tab } from "config";
-import { TabOptions } from "types";
 import { StyledTabLink } from "./styles";
 
 interface CustomTabProps {

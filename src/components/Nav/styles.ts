@@ -1,7 +1,6 @@
 import { Color } from "./../../ui/colors";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Media } from "ui";
 
 const StyledNav = styled.nav`
   display: grid;

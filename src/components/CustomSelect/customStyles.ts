@@ -1,5 +1,4 @@
 import { StylesConfig } from "react-select";
-import { Color } from "ui";
 
 const customStyles: StylesConfig = {
   control: (baseStyles) => ({

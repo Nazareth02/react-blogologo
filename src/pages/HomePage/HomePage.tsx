@@ -1,4 +1,4 @@
-import { BlogList, CustomSelect, CustomTab } from "components";
+import { BlogList, CustomSelect } from "components";
 import { Tabs } from "components";
 import { Tab, options, tabs } from "config";
 import { useState } from "react";

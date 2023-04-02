@@ -1,4 +1,3 @@
-import { Tab } from "config";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Color } from "ui";
