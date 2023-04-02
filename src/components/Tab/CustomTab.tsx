@@ -4,14 +4,18 @@ import { StyledTabLink } from "./styles";
 
 interface CustomTabProps {
   label: Tab;
-  options: TabOptions[];
-  onClick: () => void;
-  isActive: boolean;
+  onClick: (value: Tab, id: number) => void;
+  isActive: number;
+  value: Tab;
+  id: number;
 }
 
-export const CustomTab = ({ options, label, onClick, isActive }: CustomTabProps) => {
+export const CustomTab = ({ id, value, label, onClick, isActive }: CustomTabProps) => {
+  const handleClick = () => {
+    onClick(value, id);
+  };
   return (
-    <StyledTabLink to={""} onClick={onClick} $isActiveTab={isActive}>
+    <StyledTabLink to={""} onClick={handleClick} $isActiveTab={isActive}>
       {label}
     </StyledTabLink>
   );

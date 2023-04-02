@@ -13,16 +13,7 @@ const Title = styled.span`
   ${Media.MOBILE_XL} {
   }
 `;
-const TabsGroup = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-  grid-gap: 40px;
-  text-align: center;
 
-  color: ${Color.SECONDARY};
-  border-bottom: 1px solid ${Color.SECONDARY_EXTRALIGHT};
-`;
 const StyledHomePage = styled.div`
   max-width: 1110px;
   width: 100%;
@@ -34,4 +25,4 @@ const SortWidgetsGroup = styled.div`
   gap: 25px;
 `;
 
-export { Title, TabsGroup, StyledHomePage, SortWidgetsGroup };
+export { Title, StyledHomePage, SortWidgetsGroup };

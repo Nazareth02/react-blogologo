@@ -1,8 +1,9 @@
+import { Tab } from "config";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Color } from "ui";
 
-const StyledTabLink = styled(Link)<{ $isActiveTab: boolean }>`
+const StyledTabLink = styled(Link)<{ $isActiveTab: number }>`
   padding: 47px 0 24px;
   font-family: "Inter";
   font-style: normal;

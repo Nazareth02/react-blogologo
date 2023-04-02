@@ -4,21 +4,21 @@ import { TabOptions } from "types";
 import { StyledTabs } from "./styles";
 
 export interface TabsProps {
-  active: boolean;
+  active: number;
   options: TabOptions[];
-  handleClick: (value: Tab) => void;
+  handleClick: (value: Tab, id: number) => void;
 }
 
 export const Tabs = ({ active, options, handleClick }: TabsProps) => {
   return (
     <StyledTabs>
-      {options.map(({ id, label, value }) => (
+      {options.map(({ label, value, id }) => (
         <CustomTab
-          key={id}
+          value={value}
           label={label}
-          isActive={active}
-          onClick={() => handleClick(value)}
-          options={options}
+          isActive={active === id ? 1 : 0}
+          onClick={handleClick}
+          id={id}
         />
       ))}
     </StyledTabs>
