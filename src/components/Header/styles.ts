@@ -5,7 +5,7 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 20px 32px;
-  background: ${Color.WHITE};
+  background: ${Color.HEADER};
 `;
 
 export { StyledHeader };

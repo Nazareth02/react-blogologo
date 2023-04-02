@@ -8,7 +8,7 @@ const StyledTabs = styled.div`
   grid-gap: 40px;
   text-align: center;
 
-  color: ${Color.SECONDARY};
-  border-bottom: 1px solid ${Color.SECONDARY_EXTRALIGHT};
+  color: ${Color.FONT};
+  border-bottom: 1px solid ${Color.NAV};
 `;
 export { StyledTabs };

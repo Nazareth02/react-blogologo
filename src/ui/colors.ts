@@ -8,4 +8,11 @@ export enum Color {
   ERROR = "#FD3419",
   WHITE = "#FFFFFF",
   GRAY = "#F3F3F3",
+
+  BACKGROUND = "var(--theme-bg)",
+  HEADER = "var(--theme-header)",
+  BTN = "var(--theme-btn)",
+  FONT = "var(--theme-text)",
+  FOOTER_TEXT = "var(--theme-footerText)",
+  NAV = "var(--theme-navMenu)",
 }

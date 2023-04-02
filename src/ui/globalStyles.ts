@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { themeColors } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
 *{
@@ -15,6 +16,7 @@ ul,li{
 }
 input,button{
     border: 0;
+    background: transparent;
 }
 a,
 a:focus,
@@ -23,4 +25,6 @@ a:active {
     color: inherit;
     text-decoration: none;
   }
+${themeColors}
+   
 `;

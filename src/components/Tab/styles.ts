@@ -10,7 +10,7 @@ const StyledTabLink = styled(Link)<{ $isActiveTab: number }>`
   font-size: 16px;
   line-height: 24px;
   border-bottom: ${({ $isActiveTab }) =>
-    $isActiveTab ? `2.2px solid ${Color.SECONDARY}` : "none"};
+    $isActiveTab ? `2.2px solid ${Color.FOOTER_TEXT}` : "none"};
   cursor: pointer;
 `;
 export { StyledTabLink };

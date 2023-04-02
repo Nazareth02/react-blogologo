@@ -1,5 +1,16 @@
-import React from "react";
+import { ThemeToggleBtn } from "components";
+import { FooterText, StyledFooter } from "./styles";
 
-export const Footer = () => {
-  return <footer>Footer</footer>;
+interface FooterProps {
+  handleToggle: () => void;
+  activeTheme: string;
+}
+
+export const Footer = ({ handleToggle, activeTheme }: FooterProps) => {
+  return (
+    <StyledFooter>
+      <FooterText>©2022 Blogologo</FooterText>
+      <ThemeToggleBtn activeTheme={activeTheme} handleClick={handleToggle} />
+    </StyledFooter>
+  );
 };
