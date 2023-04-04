@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Footer, Header } from "components";
 import { OutlerWrap, StyledMainTemplate } from "./styles";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export const MainTemplate = () => {
   const [theme, setTheme] = useState("light");
@@ -10,9 +10,9 @@ export const MainTemplate = () => {
     document.documentElement.setAttribute("theme", theme);
   }, [theme]);
 
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
+  }, []);
 
   return (
     <StyledMainTemplate>

@@ -1,6 +1,6 @@
 import { BlogList, CustomSelect, Tabs } from "components";
 import { Tab, options, tabs } from "config";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { SingleValue } from "react-select";
 import { SelectOptions } from "types";
 import { SortWidgetsGroup, StyledHomePage, Title } from "./styles";
@@ -12,14 +12,14 @@ export const HomePage = () => {
 
   const [currentTab, setCurrentTab] = useState<Tab>(Tab.ARTICLE);
 
-  const handleTab = (value: Tab, id: number) => {
+  const handleTab = useCallback((value: Tab, id: number) => {
     setCurrentTab(value);
     setActiveTab(id);
-  };
+  }, []);
 
-  const handleSelect = (option: SingleValue<SelectOptions | null | any>) => {
+  const handleSelect = useCallback((option: SingleValue<SelectOptions | null | any>) => {
     setOption(option);
-  };
+  }, []);
 
   return (
     <StyledHomePage>
