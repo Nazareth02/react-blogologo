@@ -25,6 +25,7 @@ const customStyles: StylesConfig = {
     fontWeight: 500,
     fontSize: 16,
     lineHeight: 3,
+    paddingBottom: "40px",
     ...baseStyles,
   }),
   menuPortal: (baseStyles) => ({

@@ -1,14 +1,22 @@
+import { BlogListItem } from "components";
 import React from "react";
+import { StyledBlogList } from "./styles";
 
 export const BlogList = () => {
   return (
-    <ul>
-      BlogList
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
-      <li>5</li>
-    </ul>
+    <StyledBlogList>
+      <BlogListItem />
+      <BlogListItem />
+      <BlogListItem />
+      <BlogListItem />
+      <BlogListItem />
+      <BlogListItem />
+      <BlogListItem />
+      <BlogListItem />
+      <BlogListItem />
+      <BlogListItem />
+      <BlogListItem />
+      <BlogListItem />
+    </StyledBlogList>
   );
 };

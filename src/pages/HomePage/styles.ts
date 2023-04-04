@@ -11,6 +11,7 @@ const Title = styled.span`
   align-items: center;
   color: ${Color.FONT};
   ${Media.MOBILE_XL} {
+    font-size: 44px;
   }
 `;
 
@@ -22,7 +23,7 @@ const StyledHomePage = styled.div`
 
 const SortWidgetsGroup = styled.div`
   display: grid;
-  gap: 25px;
+  grid-gap: 25px;
 `;
 
 export { Title, StyledHomePage, SortWidgetsGroup };

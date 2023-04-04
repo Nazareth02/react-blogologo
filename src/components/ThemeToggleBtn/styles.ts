@@ -8,6 +8,7 @@ const StyledToggler = styled.button`
   font-size: 16px;
   line-height: 24px;
   color: ${Color.FOOTER_TEXT};
+  cursor: pointer;
 `;
 const ThemeText = styled.span`
   padding: 3px;

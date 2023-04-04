@@ -6,6 +6,8 @@ import { ReactComponent as SingUpIcon } from "./icons/sign-up.svg";
 import { ReactComponent as BurgerIcon } from "./icons/burger-icon.svg";
 import { ReactComponent as CloseBurgerIcon } from "./icons/close-icon.svg";
 
+import testBlogItemImage from "./img/testBlogItemImage.png";
+
 export {
   LogoIcon,
   FavoritesActiveIcon,
@@ -14,4 +16,5 @@ export {
   SearchIcon,
   BurgerIcon,
   CloseBurgerIcon,
+  testBlogItemImage,
 };

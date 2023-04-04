@@ -14,6 +14,7 @@ const SignUserInfo = styled.span`
   font-weight: 600;
   font-size: 16px;
   line-height: 34px;
+  color: ${Color.FONT};
 `;
 const StyledLink = styled(Link)`
   display: flex;

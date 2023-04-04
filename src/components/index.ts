@@ -8,6 +8,7 @@ import { CustomTab } from "./Tab/CustomTab";
 import { BlogList } from "./BlogList/BlogList";
 import { Tabs } from "./Tabs/Tabs";
 import { ThemeToggleBtn } from "./ThemeToggleBtn/ThemeToggleBtn";
+import { BlogListItem } from "./BlogListItem/BlogListItem";
 
 export {
   Header,
@@ -20,4 +21,5 @@ export {
   BlogList,
   Tabs,
   ThemeToggleBtn,
+  BlogListItem,
 };
