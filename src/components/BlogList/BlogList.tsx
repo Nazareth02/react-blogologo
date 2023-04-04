@@ -1,5 +1,4 @@
 import { BlogListItem } from "components";
-import React from "react";
 import { StyledBlogList } from "./styles";
 
 export const BlogList = () => {

@@ -1,5 +1,4 @@
 import { testBlogItemImage } from "assets";
-import React from "react";
 import { CardDate, CardDesc, CardImage, CardTextGroup, StyledBlogListItem } from "./styles";
 
 export const BlogListItem = () => {

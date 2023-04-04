@@ -1,9 +1,8 @@
 import { LogoIcon } from "assets";
 import { Link } from "react-router-dom";
-import { Nav } from "components";
+import { Nav, BurgerMenuNav } from "components";
 import { StyledHeader } from "./styles";
 import { ROUTES } from "routes";
-import { BurgerMenuNav } from "components/BurgerMenuNav/BurgerMenuNav";
 
 export const Header = () => {
   const isMobile = false;
