@@ -1,5 +1,6 @@
 import { CustomTab } from "components";
 import { Tab } from "config";
+import { memo } from "react";
 import { TabOptions } from "types";
 import { StyledTabs } from "./styles";
 
@@ -9,7 +10,7 @@ export interface TabsProps {
   handleClick: (value: Tab, id: number) => void;
 }
 
-export const Tabs = ({ active, options, handleClick }: TabsProps) => {
+export const Tabs = memo(({ active, options, handleClick }: TabsProps) => {
   return (
     <StyledTabs>
       {options.map(({ label, value, id }) => (
@@ -23,4 +24,4 @@ export const Tabs = ({ active, options, handleClick }: TabsProps) => {
       ))}
     </StyledTabs>
   );
-};
+});

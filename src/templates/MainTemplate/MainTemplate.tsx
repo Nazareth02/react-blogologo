@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
 import { Footer, Header } from "components";
 import { OutlerWrap, StyledMainTemplate } from "./styles";
-import { useCallback, useEffect, useState } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 
-export const MainTemplate = () => {
+export const MainTemplate = memo(() => {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
@@ -23,4 +23,4 @@ export const MainTemplate = () => {
       <Footer activeTheme={theme} handleToggle={toggleTheme} />
     </StyledMainTemplate>
   );
-};
+});

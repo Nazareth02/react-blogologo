@@ -1,5 +1,5 @@
-import React from "react";
+import React, { memo } from "react";
 
-export const ContentPage = () => {
+export const ContentPage = memo(() => {
   return <div>ContentPage</div>;
-};
+});

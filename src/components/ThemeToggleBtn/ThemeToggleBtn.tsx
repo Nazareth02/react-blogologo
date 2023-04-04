@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { StyledToggler, ThemeText } from "./styles";
 
 interface TogglerProps {
@@ -5,10 +6,10 @@ interface TogglerProps {
   activeTheme: string;
 }
 
-export const ThemeToggleBtn = ({ handleClick, activeTheme }: TogglerProps) => {
+export const ThemeToggleBtn = memo(({ handleClick, activeTheme }: TogglerProps) => {
   return (
     <StyledToggler onClick={handleClick}>
       Change to <ThemeText>{activeTheme === "light" ? "dark" : "light"}</ThemeText> theme
     </StyledToggler>
   );
-};
+});

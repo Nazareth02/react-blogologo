@@ -1,8 +1,9 @@
+import { memo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ROUTES } from "routes";
 import { SignInText } from "./styles";
 
-export const SignInPage = () => {
+export const SignInPage = memo(() => {
   const navigate = useNavigate();
 
   return (
@@ -17,4 +18,4 @@ export const SignInPage = () => {
       </span>
     </div>
   );
-};
+});

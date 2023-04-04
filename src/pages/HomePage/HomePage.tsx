@@ -1,11 +1,11 @@
 import { BlogList, CustomSelect, Tabs } from "components";
 import { Tab, options, tabs } from "config";
-import { useCallback, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { SingleValue } from "react-select";
 import { SelectOptions } from "types";
 import { SortWidgetsGroup, StyledHomePage, Title } from "./styles";
 
-export const HomePage = () => {
+export const HomePage = memo(() => {
   const [option, setOption] = useState(options[0]);
 
   const [isActiveTab, setActiveTab] = useState(tabs[0].id);
@@ -32,4 +32,4 @@ export const HomePage = () => {
       {currentTab === Tab.ARTICLE ? <BlogList /> : <BlogList />}
     </StyledHomePage>
   );
-};
+});

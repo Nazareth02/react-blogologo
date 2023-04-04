@@ -1,5 +1,5 @@
-import React from "react";
+import React, { memo } from "react";
 
-export const AccountPage = () => {
+export const AccountPage = memo(() => {
   return <div>AccountPage</div>;
-};
+});

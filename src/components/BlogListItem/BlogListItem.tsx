@@ -1,7 +1,8 @@
 import { testBlogItemImage } from "assets";
+import { memo } from "react";
 import { CardDate, CardDesc, CardImage, CardTextGroup, StyledBlogListItem } from "./styles";
 
-export const BlogListItem = () => {
+export const BlogListItem = memo(() => {
   return (
     <StyledBlogListItem>
       <CardImage src={testBlogItemImage} alt="Image not found" />
@@ -11,4 +12,4 @@ export const BlogListItem = () => {
       </CardTextGroup>
     </StyledBlogListItem>
   );
-};
+});

@@ -1,9 +1,10 @@
 import { FavoritesActiveIcon, SearchIcon, SingInIcon, SingUpIcon } from "assets";
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "routes";
 import { SignUserInfo, StyledLink, StyledNav } from "./styles";
 
-export const Nav = () => {
+export const Nav = memo(() => {
   const isAuth = false;
   return (
     <StyledNav>
@@ -26,4 +27,4 @@ export const Nav = () => {
       )}
     </StyledNav>
   );
-};
+});

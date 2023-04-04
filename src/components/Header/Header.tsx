@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { Nav, BurgerMenuNav } from "components";
 import { StyledHeader } from "./styles";
 import { ROUTES } from "routes";
+import { memo } from "react";
 
-export const Header = () => {
+export const Header = memo(() => {
   const isMobile = false;
   return (
     <StyledHeader>
@@ -14,4 +15,4 @@ export const Header = () => {
       {isMobile ? <BurgerMenuNav></BurgerMenuNav> : <Nav />}
     </StyledHeader>
   );
-};
+});

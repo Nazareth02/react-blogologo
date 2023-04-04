@@ -1,7 +1,8 @@
 import { BlogListItem } from "components";
+import { memo } from "react";
 import { StyledBlogList } from "./styles";
 
-export const BlogList = () => {
+export const BlogList = memo(() => {
   return (
     <StyledBlogList>
       <BlogListItem />
@@ -18,4 +19,4 @@ export const BlogList = () => {
       <BlogListItem />
     </StyledBlogList>
   );
-};
+});

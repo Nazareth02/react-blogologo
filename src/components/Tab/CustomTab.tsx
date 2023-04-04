@@ -1,5 +1,5 @@
 import { Tab } from "config";
-import { useCallback } from "react";
+import { memo, useCallback } from "react";
 import { StyledTabLink } from "./styles";
 
 interface CustomTabProps {
@@ -10,7 +10,7 @@ interface CustomTabProps {
   id: number;
 }
 
-export const CustomTab = ({ id, value, label, onClick, isActive }: CustomTabProps) => {
+export const CustomTab = memo(({ id, value, label, onClick, isActive }: CustomTabProps) => {
   const handleClick = useCallback(() => {
     onClick(value, id);
   }, []);
@@ -19,4 +19,4 @@ export const CustomTab = ({ id, value, label, onClick, isActive }: CustomTabProp
       {label}
     </StyledTabLink>
   );
-};
+});
