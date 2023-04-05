@@ -4,10 +4,11 @@ import { Color } from "ui";
 const StyledFooter = styled.footer`
   display: flex;
   justify-content: space-between;
-  max-width: 1180px;
-  padding: 33px 32px;
-  margin: auto;
+  max-width: 1120px;
+  padding: 33px 0;
+  margin: 72px auto 0;
   background: ${Color.BACKGROUND};
+  border-top: 1px solid ${Color.NAV};
 `;
 const FooterText = styled.span`
   font-family: "Inter";

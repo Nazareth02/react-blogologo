@@ -13,7 +13,7 @@ interface CustomTabProps {
 export const CustomTab = memo(({ id, value, label, onClick, isActive }: CustomTabProps) => {
   const handleClick = useCallback(() => {
     onClick(value, id);
-  }, []);
+  }, [id, value, onClick]);
   return (
     <StyledTabLink to={""} onClick={handleClick} $isActiveTab={isActive}>
       {label}

@@ -1,11 +1,17 @@
-import { BlogList, CustomSelect, Tabs } from "components";
+import { BlogList, CustomSelect, Loader, Tabs } from "components";
 import { Tab, options, tabs } from "config";
-import { memo, useCallback, useState } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import { SingleValue } from "react-select";
 import { SelectOptions } from "types";
 import { SortWidgetsGroup, StyledHomePage, Title } from "./styles";
+import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
+import { fetchAllArticles } from "store/features/blogsSlice/blogsSlice";
 
 export const HomePage = memo(() => {
+  const { isLoading, articles } = useAppSelector((state) => state.blogs);
+
+  const dispatch = useAppDispatch();
+
   const [option, setOption] = useState(options[0]);
 
   const [isActiveTab, setActiveTab] = useState(tabs[0].id);
@@ -21,6 +27,10 @@ export const HomePage = memo(() => {
     setOption(option);
   }, []);
 
+  useEffect(() => {
+    dispatch(fetchAllArticles());
+  }, [dispatch]);
+
   return (
     <StyledHomePage>
       <Title>Blog</Title>
@@ -29,7 +39,14 @@ export const HomePage = memo(() => {
         {currentTab === Tab.ARTICLE && <CustomSelect handleSelect={handleSelect} />}
         {currentTab === Tab.NEWS && <CustomSelect handleSelect={handleSelect} />}
       </SortWidgetsGroup>
-      {currentTab === Tab.ARTICLE ? <BlogList /> : <BlogList />}
+
+      {isLoading ? (
+        <Loader />
+      ) : currentTab === Tab.ARTICLE ? (
+        <BlogList posts={articles} />
+      ) : (
+        <BlogList />
+      )}
     </StyledHomePage>
   );
 });

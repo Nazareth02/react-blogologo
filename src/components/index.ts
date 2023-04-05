@@ -9,6 +9,7 @@ import { BlogList } from "./BlogList/BlogList";
 import { Tabs } from "./Tabs/Tabs";
 import { ThemeToggleBtn } from "./ThemeToggleBtn/ThemeToggleBtn";
 import { BlogListItem } from "./BlogListItem/BlogListItem";
+import { Loader } from "./Loader/Loader";
 
 export {
   Header,
@@ -22,4 +23,5 @@ export {
   Tabs,
   ThemeToggleBtn,
   BlogListItem,
+  Loader,
 };

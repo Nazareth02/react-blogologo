@@ -5,8 +5,8 @@ const StyledMainTemplate = styled.div`
   min-height: 100vh;
   background: ${Color.BACKGROUND};
 `;
-const OutlerWrap = styled.div`
+const Wrap = styled.div`
   padding: 72px 32px 0;
 `;
 
-export { StyledMainTemplate, OutlerWrap };
+export { StyledMainTemplate, Wrap };
