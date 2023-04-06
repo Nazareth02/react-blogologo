@@ -3,13 +3,13 @@ import { Color, Media } from "ui";
 
 const StyledBlogListItem = styled.li`
   display: grid;
-  place-content: center;
   max-width: 352px;
   max-height: 388px;
   width: 100%;
   height: 100%;
   border-radius: 16px;
   background: linear-gradient(rgba(77, 10, 199, 0.6), rgba(145, 46, 242, 0.6) 108.59%);
+  background: #8b00ff;
   mix-blend-mode: normal;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
     rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -30,13 +30,28 @@ const StyledBlogListItem = styled.li`
   }
 `;
 
+const CardImageWrap = styled.div`
+  display: grid;
+  align-items: center;
+  width: 100%;
+  height: 208px;
+`;
+
 const CardImage = styled.img`
   max-width: 352px;
   width: 100%;
   max-height: 208px;
   border-radius: 16px 16px 0 0;
-  mask-image: linear-gradient(rgba(77, 10, 199, 0.6), rgba(145, 46, 242, 0.6) 108.59%);
+  mask-image: linear-gradient(
+    133.87deg,
+    rgba(77, 10, 199, 0.6) -10.18%,
+    rgba(145, 46, 242, 0.6) 108.59%
+  );
   transition: 0.4s;
+  width: 100%;
+  min-height: 208px;
+  height: 208px;
+  object-fit: cover;
 
   &:hover {
     mask: none;
@@ -51,15 +66,16 @@ const CardDate = styled.span`
   line-height: 24px;
   color: ${Color.FONT};
   ${Media.LAPTOP_S} {
-    font-size: 14px;
+    font-size: 12px;
   }
   ${Media.TABLET} {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
   }
 `;
 
 const CardDesc = styled.span`
+  min-height: 85px;
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
@@ -68,10 +84,14 @@ const CardDesc = styled.span`
   align-items: center;
   color: ${Color.FONT};
   ${Media.LAPTOP_S} {
-    font-size: 16px;
+    font-size: 15px;
   }
   ${Media.TABLET} {
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 28px;
+  }
+  ${Media.TABLET} {
+    font-size: 16px;
     line-height: 28px;
   }
 `;
@@ -92,4 +112,4 @@ const CardTextGroup = styled.div`
   }
 `;
 
-export { StyledBlogListItem, CardImage, CardDate, CardDesc, CardTextGroup };
+export { StyledBlogListItem, CardImage, CardDate, CardDesc, CardTextGroup, CardImageWrap };

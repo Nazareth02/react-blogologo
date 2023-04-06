@@ -1,14 +1,32 @@
 import { testBlogItemImage } from "assets";
 import { memo } from "react";
-import { CardDate, CardDesc, CardImage, CardTextGroup, StyledBlogListItem } from "./styles";
+import {
+  CardDate,
+  CardDesc,
+  CardImage,
+  CardImageWrap,
+  CardTextGroup,
+  StyledBlogListItem,
+} from "./styles";
+import { BlogItem } from "types";
 
-export const BlogListItem = memo(() => {
+interface BlogListItemProps {
+  post: BlogItem;
+  posts: BlogItem[];
+}
+
+export const BlogListItem = memo(({ post, posts }: BlogListItemProps) => {
+  const { image_url, published_at, title, id } = post;
+
   return (
     <StyledBlogListItem>
-      <CardImage src={testBlogItemImage} alt="Image not found" />
+      <CardImageWrap>
+        <CardImage src={image_url} alt="Image not found" />
+      </CardImageWrap>
+
       <CardTextGroup>
-        <CardDate>April 20, 2021</CardDate>
-        <CardDesc>Astronauts prep for new solar arrays on nearly seven-hour spacewalk</CardDesc>
+        <CardDate>{published_at}</CardDate>
+        <CardDesc>{title.length > 65 ? title.slice(0, 65) + " ..." : title}</CardDesc>
       </CardTextGroup>
     </StyledBlogListItem>
   );

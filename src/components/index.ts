@@ -10,6 +10,7 @@ import { Tabs } from "./Tabs/Tabs";
 import { ThemeToggleBtn } from "./ThemeToggleBtn/ThemeToggleBtn";
 import { BlogListItem } from "./BlogListItem/BlogListItem";
 import { Loader } from "./Loader/Loader";
+import { ErrorMessage } from "./ErrorMessage/ErrorMessage";
 
 export {
   Header,
@@ -24,4 +25,5 @@ export {
   ThemeToggleBtn,
   BlogListItem,
   Loader,
+  ErrorMessage,
 };

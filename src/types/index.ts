@@ -1,3 +1,3 @@
-import { SelectOptions, TabOptions } from "./types";
+import { BlogItem, SelectOptions, TabOptions } from "./types";
 
-export type { SelectOptions, TabOptions };
+export type { SelectOptions, TabOptions, BlogItem };
