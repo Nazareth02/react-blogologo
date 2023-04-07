@@ -4,8 +4,7 @@ import { memo, useCallback, useEffect, useState } from "react";
 import { SingleValue } from "react-select";
 import { SelectOptions } from "types";
 import { SortWidgetsGroup, StyledHomePage, Title } from "./styles";
-import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
-import { fetchArticles, getAllArticles } from "store";
+import { fetchArticles, getAllArticles, useAppDispatch, useAppSelector } from "store";
 
 export const HomePage = memo(() => {
   const { isLoading, articles, news, error } = useAppSelector(getAllArticles);

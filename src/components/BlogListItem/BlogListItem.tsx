@@ -1,4 +1,3 @@
-import { testBlogItemImage } from "assets";
 import { memo } from "react";
 import {
   CardDate,
