@@ -8,6 +8,7 @@ import {
   StyledBlogListItem,
 } from "./styles";
 import { BlogItem } from "types";
+import dateFormat from "dateformat";
 
 interface BlogListItemProps {
   post: BlogItem;
@@ -24,8 +25,8 @@ export const BlogListItem = memo(({ post, posts }: BlogListItemProps) => {
       </CardImageWrap>
 
       <CardTextGroup>
-        <CardDate>{published_at}</CardDate>
-        <CardDesc>{title.length > 65 ? title.slice(0, 65) + " ..." : title}</CardDesc>
+        <CardDate>{dateFormat(published_at, "mmmm dd, yyyy")}</CardDate>
+        <CardDesc>{title.length > 70 ? title.slice(0, 70) + " ..." : title}</CardDesc>
       </CardTextGroup>
     </StyledBlogListItem>
   );
