@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Footer, Header } from "components";
-import { Wrap, StyledMainTemplate } from "./styles";
+import { StyledMainTemplate, MainTemplateWrapper, OutletWrap } from "./styles";
 import { memo, useCallback, useEffect, useState } from "react";
 
 export const MainTemplate = memo(() => {
@@ -16,11 +16,13 @@ export const MainTemplate = memo(() => {
 
   return (
     <StyledMainTemplate>
-      <Header />
-      <Wrap>
-        <Outlet />
-        <Footer activeTheme={theme} handleToggle={toggleTheme} />
-      </Wrap>
+      <MainTemplateWrapper>
+        <Header />
+        <OutletWrap>
+          <Outlet />
+        </OutletWrap>
+      </MainTemplateWrapper>
+      <Footer activeTheme={theme} handleToggle={toggleTheme} />
     </StyledMainTemplate>
   );
 });

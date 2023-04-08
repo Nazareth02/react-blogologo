@@ -23,7 +23,7 @@ export const BlogListItem = memo(({ post, posts }: BlogListItemProps) => {
   return (
     <StyledBlogListItem>
       <CardImageWrap>
-        <CardImage src={image_url + "14"} alt="Image not found" onError={setImageNotFound} />
+        <CardImage src={image_url} alt="Image not found" onError={setImageNotFound} />
       </CardImageWrap>
 
       <CardTextGroup>

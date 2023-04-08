@@ -2,11 +2,13 @@ import styled from "styled-components";
 import { Color } from "ui";
 
 const StyledMainTemplate = styled.div`
-  min-height: 100vh;
   background: ${Color.BACKGROUND};
 `;
-const Wrap = styled.div`
+const MainTemplateWrapper = styled.div`
+  min-height: 100vh;
+`;
+const OutletWrap = styled.div`
   padding: 72px 32px 0;
 `;
 
-export { StyledMainTemplate, Wrap };
+export { StyledMainTemplate, OutletWrap, MainTemplateWrapper };
