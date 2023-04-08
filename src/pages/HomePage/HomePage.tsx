@@ -31,6 +31,7 @@ export const HomePage = memo(() => {
       fetchArticles({
         value: option.value,
         text: "",
+        _limit: 12,
       }),
     );
   }, [dispatch, option.value]);

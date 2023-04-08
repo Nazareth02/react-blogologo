@@ -11,18 +11,21 @@ interface BlogsState {
 
 export const fetchArticles = createAsyncThunk<
   BlogItem[],
-  { value: string; text: string },
+  { value: string; text: string; _limit: number },
   { rejectValue: string }
 >("articles/fetchArticles", async (params, { rejectWithValue }) => {
   try {
+    // const { data } = await axios.get(
+    //   `https://api.spaceflightnewsapi.net/v4/articles/?${(params.text, params.value)}`,
+    // );
     const { data } = await axios.get(
-      `https://api.spaceflightnewsapi.net/v4/articles/?${(params.text, params.value)}`,
+      `https://api.spaceflightnewsapi.net/v3/articles?_limit=${params._limit}&_sort=${params.value}`,
     );
 
-    const results = data.results;
-    console.log(data.count);
-
-    return results;
+    return data;
+    // const results = data.results;
+    // console.log(data.next);
+    // return results;
   } catch (error) {
     const { message } = error as AxiosError;
 

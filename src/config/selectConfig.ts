@@ -1,8 +1,8 @@
 import { SelectOptions } from "types";
 
 enum Options {
-  DateLatest = "published_at:DESC",
-  DateEarliset = "published_at",
+  DateLatest = "publishedAt:DESC",
+  DateEarliset = "publishedAt",
   TitleFrom_A = "title",
   TitleFrom_Z = "title:DESC",
 }

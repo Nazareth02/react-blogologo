@@ -15,11 +15,11 @@ interface BlogItem {
   id: string;
   title: string;
   url: string;
-  image_url: string;
-  news_site: string;
+  imageUrl: string;
+  newsSite: string;
   summary: string;
-  published_at: string;
-  updated_at: string;
+  publishedAt: string;
+  updatedAt: string;
   featured: boolean;
   launches: LaunchesProps[];
   events: any[];
