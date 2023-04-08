@@ -2,7 +2,6 @@ import { options } from "config";
 import { memo } from "react";
 import Select, { SingleValue } from "react-select";
 import { SelectOptions } from "types";
-
 import { customStyles } from "./customStyles";
 
 interface SelectProps {

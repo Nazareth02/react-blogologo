@@ -20,6 +20,8 @@ export const fetchArticles = createAsyncThunk<
     );
 
     const results = data.results;
+    console.log(data.count);
+
     return results;
   } catch (error) {
     const { message } = error as AxiosError;

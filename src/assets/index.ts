@@ -5,6 +5,7 @@ import { ReactComponent as SingInIcon } from "./icons/sign-in.svg";
 import { ReactComponent as SingUpIcon } from "./icons/sign-up.svg";
 import { ReactComponent as BurgerIcon } from "./icons/burger-icon.svg";
 import { ReactComponent as CloseBurgerIcon } from "./icons/close-icon.svg";
+import imageNotFound from "./img/imageNotFound.png";
 
 export {
   LogoIcon,
@@ -14,4 +15,5 @@ export {
   SearchIcon,
   BurgerIcon,
   CloseBurgerIcon,
+  imageNotFound,
 };

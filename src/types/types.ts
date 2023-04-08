@@ -25,7 +25,7 @@ interface BlogItem {
   events: any[];
 }
 interface LaunchesProps {
-  id: string;
+  event_id: string;
   provider: string;
 }
 

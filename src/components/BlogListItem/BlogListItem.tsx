@@ -9,6 +9,8 @@ import {
 } from "./styles";
 import { BlogItem } from "types";
 import dateFormat from "dateformat";
+import { imageNotFound } from "assets";
+import { setImageNotFound } from "utils/setNotFoundImage";
 
 interface BlogListItemProps {
   post: BlogItem;
@@ -21,7 +23,7 @@ export const BlogListItem = memo(({ post, posts }: BlogListItemProps) => {
   return (
     <StyledBlogListItem>
       <CardImageWrap>
-        <CardImage src={image_url} alt="Image not found" />
+        <CardImage src={image_url + "14"} alt="Image not found" onError={setImageNotFound} />
       </CardImageWrap>
 
       <CardTextGroup>
