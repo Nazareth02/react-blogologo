@@ -15,17 +15,12 @@ export const fetchArticles = createAsyncThunk<
   { rejectValue: string }
 >("articles/fetchArticles", async (params, { rejectWithValue }) => {
   try {
-    // const { data } = await axios.get(
-    //   `https://api.spaceflightnewsapi.net/v4/articles/?${(params.text, params.value)}`,
-    // );
     const { data } = await axios.get(
       `https://api.spaceflightnewsapi.net/v3/articles?_limit=${params._limit}&_sort=${params.value}`,
     );
+    console.log(data);
 
     return data;
-    // const results = data.results;
-    // console.log(data.next);
-    // return results;
   } catch (error) {
     const { message } = error as AxiosError;
 

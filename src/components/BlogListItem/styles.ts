@@ -53,6 +53,7 @@ const CardImage = styled.img`
   transition: 0.4s;
 
   object-fit: cover;
+  object-position: 100% 30%;
 
   &:hover {
     mask: none;
