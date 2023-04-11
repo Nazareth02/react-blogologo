@@ -4,8 +4,8 @@ import { Color } from "ui";
 const StyledFooter = styled.footer`
   display: flex;
   justify-content: space-between;
-  max-width: 1120px;
-  padding: 33px 0;
+  max-width: 1170px;
+  padding: 33px 15px;
   margin: 72px auto 0;
   background: ${Color.BACKGROUND};
   border-top: 1px solid ${Color.NAV};

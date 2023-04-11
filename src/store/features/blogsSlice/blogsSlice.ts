@@ -18,7 +18,6 @@ export const fetchArticles = createAsyncThunk<
     const { data } = await axios.get(
       `https://api.spaceflightnewsapi.net/v3/articles?_limit=${params._limit}&_sort=${params.value}`,
     );
-    console.log(data);
 
     return data;
   } catch (error) {
@@ -30,16 +29,15 @@ export const fetchArticles = createAsyncThunk<
 
 export const fetchNews = createAsyncThunk<
   BlogItem[],
-  { page: number; value: string; text: string },
+  { value: string; text: string; _limit: number },
   { rejectValue: string }
 >("news/fetchNews", async (params, { rejectWithValue }) => {
   try {
     const { data } = await axios.get(
-      `https://api.spaceflightnewsapi.net/v4/blogs/${(params.page, params.value, params.text)}`,
+      `https://api.spaceflightnewsapi.net/v3/blogs?_limit=${params._limit}&_sort=${params.value}`,
     );
 
-    const results = data.results;
-    return results;
+    return data;
   } catch (error) {
     const { message } = error as AxiosError;
 
@@ -67,6 +65,20 @@ const blogsSlice = createSlice({
       state.articles = payload;
     });
     builder.addCase(fetchArticles.rejected, (state, { payload }) => {
+      state.isLoading = false;
+      if (payload) {
+        state.error = payload;
+      }
+    });
+
+    builder.addCase(fetchNews.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(fetchNews.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.news = payload;
+    });
+    builder.addCase(fetchNews.rejected, (state, { payload }) => {
       state.isLoading = false;
       if (payload) {
         state.error = payload;

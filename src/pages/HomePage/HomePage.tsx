@@ -4,7 +4,7 @@ import { memo, useCallback, useEffect, useState } from "react";
 import { SingleValue } from "react-select";
 import { SelectOptions } from "types";
 import { SortWidgetsGroup, StyledHomePage, Title } from "./styles";
-import { fetchArticles, getAllArticles, useAppDispatch, useAppSelector } from "store";
+import { fetchArticles, fetchNews, getAllArticles, useAppDispatch, useAppSelector } from "store";
 
 export const HomePage = memo(() => {
   const { isLoading, articles, news, error } = useAppSelector(getAllArticles);
@@ -36,9 +36,16 @@ export const HomePage = memo(() => {
     );
   }, [dispatch, option.value]);
 
-  // useEffect(() => {
-  //   dispatch(fetchNews({ page: requestParams.page, value: option.value, word: "" }));
-  // }, [dispatch, option.value, requestParams.page]);
+  useEffect(() => {
+    dispatch(
+      fetchNews({
+        value: option.value,
+        text: "",
+        _limit: 12,
+        // page: 1,
+      }),
+    );
+  }, [dispatch, option.value]);
 
   return (
     <StyledHomePage>
