@@ -12,6 +12,7 @@ import { BlogListItem } from "./BlogListItem/BlogListItem";
 import { Loader } from "./Loader/Loader";
 import { ErrorMessage } from "./ErrorMessage/ErrorMessage";
 import { ShowMoreBtn } from "./ShowMoreBtn/ShowMoreBtn";
+import { ShowPreviousBtn } from "./ShowPreviousBtn/ShowPreviousBtn";
 
 export {
   Header,
@@ -28,4 +29,5 @@ export {
   Loader,
   ErrorMessage,
   ShowMoreBtn,
+  ShowPreviousBtn,
 };

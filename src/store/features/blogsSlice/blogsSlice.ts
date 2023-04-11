@@ -37,6 +37,7 @@ export const fetchNews = createAsyncThunk<
     const { data } = await axios.get(
       `https://api.spaceflightnewsapi.net/v3/blogs?_limit=${params.limit}&_sort=${params.value}&_start=${params.start}`,
     );
+    console.log(data);
 
     return data;
   } catch (error) {

@@ -26,4 +26,10 @@ const SortWidgetsGroup = styled.div`
   grid-gap: 25px;
 `;
 
-export { Title, StyledHomePage, SortWidgetsGroup };
+const ShowBtnGroup = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-top: 25px;
+`;
+
+export { Title, StyledHomePage, SortWidgetsGroup, ShowBtnGroup };

@@ -1,9 +1,10 @@
-import { StyledShowMoreBtn, WrapperShowMoreBtn } from "./styles";
+import { memo } from "react";
+import { StyledShowMoreBtn } from "./styles";
 
-export const ShowMoreBtn = () => {
-  return (
-    <WrapperShowMoreBtn>
-      <StyledShowMoreBtn>Show More</StyledShowMoreBtn>
-    </WrapperShowMoreBtn>
-  );
-};
+interface BtnProps {
+  handleClick: () => void;
+}
+
+export const ShowMoreBtn = memo(({ handleClick }: BtnProps) => {
+  return <StyledShowMoreBtn onClick={handleClick}>Show More</StyledShowMoreBtn>;
+});

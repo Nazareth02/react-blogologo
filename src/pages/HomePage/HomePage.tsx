@@ -1,15 +1,33 @@
-import { BlogList, CustomSelect, ErrorMessage, Loader, ShowMoreBtn, Tabs } from "components";
+import {
+  BlogList,
+  CustomSelect,
+  ErrorMessage,
+  Loader,
+  ShowMoreBtn,
+  ShowPreviousBtn,
+  Tabs,
+} from "components";
 import { Tab, options, tabs } from "config";
 import { memo, useCallback, useEffect, useState } from "react";
 import { SingleValue } from "react-select";
 import { SelectOptions } from "types";
-import { SortWidgetsGroup, StyledHomePage, Title } from "./styles";
+import { ShowBtnGroup, SortWidgetsGroup, StyledHomePage, Title } from "./styles";
 import { fetchArticles, fetchNews, getAllArticles, useAppDispatch, useAppSelector } from "store";
 
 export const HomePage = memo(() => {
   const { isLoading, articles, news, error } = useAppSelector(getAllArticles);
 
+  const [startPage, setStartPage] = useState(1);
+
   const dispatch = useAppDispatch();
+
+  const handleMoreBooks = useCallback(() => {
+    setStartPage((prev) => prev + Tab.BLOGS_LIMIT);
+  }, []);
+
+  const handlePreviousBooks = useCallback(() => {
+    setStartPage((prev) => prev - Tab.BLOGS_LIMIT);
+  }, []);
 
   const [option, setOption] = useState(options[0]);
 
@@ -32,10 +50,10 @@ export const HomePage = memo(() => {
         value: option.value,
         text: "",
         limit: Tab.BLOGS_LIMIT,
-        start: 1,
+        start: startPage,
       }),
     );
-  }, [dispatch, option.value]);
+  }, [dispatch, option.value, startPage]);
 
   useEffect(() => {
     dispatch(
@@ -43,10 +61,10 @@ export const HomePage = memo(() => {
         value: option.value,
         text: "",
         limit: Tab.BLOGS_LIMIT,
-        start: 1,
+        start: startPage,
       }),
     );
-  }, [dispatch, option.value]);
+  }, [dispatch, option.value, startPage]);
 
   return (
     <StyledHomePage>
@@ -67,7 +85,15 @@ export const HomePage = memo(() => {
         <BlogList posts={news} />
       )}
 
-      {articles?.length > 0 ? <ShowMoreBtn /> : null}
+      {/* <ShowPreviousBtn startPage={startPage} handleClick={handlePreviousBooks} />
+       */}
+
+      {!isLoading ? (
+        <ShowBtnGroup>
+          <ShowPreviousBtn startPage={startPage} handleClick={handlePreviousBooks} />
+          <ShowMoreBtn handleClick={handleMoreBooks} />
+        </ShowBtnGroup>
+      ) : null}
     </StyledHomePage>
   );
 });

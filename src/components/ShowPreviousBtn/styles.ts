@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Color, Media } from "ui";
 
-const StyledShowMoreBtn = styled.button`
+const StyledShowPreviousBtn = styled.button`
+  justify-self: start;
   max-width: 200px;
   padding: 20px;
   font-family: "Inter";
@@ -30,6 +31,9 @@ const StyledShowMoreBtn = styled.button`
     font-size: 12px;
     line-height: 16px;
   }
+  &:disabled {
+    background: ${Color.NAV};
+  }
 `;
 
-export { StyledShowMoreBtn };
+export { StyledShowPreviousBtn };
