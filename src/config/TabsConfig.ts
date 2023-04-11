@@ -5,6 +5,7 @@ export enum Tab {
   NEWS = "blogs",
   ARTICLE_LABEL = "Articles",
   NEWS_LABEL = "News",
+  BLOGS_LIMIT = 12,
 }
 
 export const tabs: TabOptions[] = [

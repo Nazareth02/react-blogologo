@@ -11,6 +11,7 @@ import { ThemeToggleBtn } from "./ThemeToggleBtn/ThemeToggleBtn";
 import { BlogListItem } from "./BlogListItem/BlogListItem";
 import { Loader } from "./Loader/Loader";
 import { ErrorMessage } from "./ErrorMessage/ErrorMessage";
+import { ShowMoreBtn } from "./ShowMoreBtn/ShowMoreBtn";
 
 export {
   Header,
@@ -26,4 +27,5 @@ export {
   BlogListItem,
   Loader,
   ErrorMessage,
+  ShowMoreBtn,
 };

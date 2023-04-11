@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
+import { Tab } from "config";
 import { BlogItem } from "types";
 
 interface BlogsState {
@@ -11,12 +12,12 @@ interface BlogsState {
 
 export const fetchArticles = createAsyncThunk<
   BlogItem[],
-  { value: string; text: string; _limit: number },
+  { value: string; text: string; limit: Tab; start: number },
   { rejectValue: string }
 >("articles/fetchArticles", async (params, { rejectWithValue }) => {
   try {
     const { data } = await axios.get(
-      `https://api.spaceflightnewsapi.net/v3/articles?_limit=${params._limit}&_sort=${params.value}`,
+      `https://api.spaceflightnewsapi.net/v3/articles?_limit=${params.limit}&_sort=${params.value}&_start=${params.start}`,
     );
 
     return data;
@@ -29,12 +30,12 @@ export const fetchArticles = createAsyncThunk<
 
 export const fetchNews = createAsyncThunk<
   BlogItem[],
-  { value: string; text: string; _limit: number },
+  { value: string; text: string; limit: Tab; start: number },
   { rejectValue: string }
 >("news/fetchNews", async (params, { rejectWithValue }) => {
   try {
     const { data } = await axios.get(
-      `https://api.spaceflightnewsapi.net/v3/blogs?_limit=${params._limit}&_sort=${params.value}`,
+      `https://api.spaceflightnewsapi.net/v3/blogs?_limit=${params.limit}&_sort=${params.value}&_start=${params.start}`,
     );
 
     return data;

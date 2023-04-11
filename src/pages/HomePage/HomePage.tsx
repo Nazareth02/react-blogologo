@@ -1,4 +1,4 @@
-import { BlogList, CustomSelect, ErrorMessage, Loader, Tabs } from "components";
+import { BlogList, CustomSelect, ErrorMessage, Loader, ShowMoreBtn, Tabs } from "components";
 import { Tab, options, tabs } from "config";
 import { memo, useCallback, useEffect, useState } from "react";
 import { SingleValue } from "react-select";
@@ -31,7 +31,8 @@ export const HomePage = memo(() => {
       fetchArticles({
         value: option.value,
         text: "",
-        _limit: 12,
+        limit: Tab.BLOGS_LIMIT,
+        start: 1,
       }),
     );
   }, [dispatch, option.value]);
@@ -41,8 +42,8 @@ export const HomePage = memo(() => {
       fetchNews({
         value: option.value,
         text: "",
-        _limit: 12,
-        // page: 1,
+        limit: Tab.BLOGS_LIMIT,
+        start: 1,
       }),
     );
   }, [dispatch, option.value]);
@@ -65,6 +66,8 @@ export const HomePage = memo(() => {
       ) : (
         <BlogList posts={news} />
       )}
+
+      {articles?.length > 0 ? <ShowMoreBtn /> : null}
     </StyledHomePage>
   );
 });
