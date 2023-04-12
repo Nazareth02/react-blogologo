@@ -17,23 +17,29 @@ import { fetchArticles, fetchNews, getAllArticles, useAppDispatch, useAppSelecto
 export const HomePage = memo(() => {
   const { isLoading, articles, news, error } = useAppSelector(getAllArticles);
 
-  const [startPage, setStartPage] = useState(1);
+  const [startArticles, setStartArticles] = useState(1);
 
-  const dispatch = useAppDispatch();
-
-  const handleMoreBooks = useCallback(() => {
-    setStartPage((prev) => prev + Tab.BLOGS_LIMIT);
-  }, []);
-
-  const handlePreviousBooks = useCallback(() => {
-    setStartPage((prev) => prev - Tab.BLOGS_LIMIT);
-  }, []);
+  const [startNews, setStartNews] = useState(1);
 
   const [option, setOption] = useState(options[0]);
 
   const [isActiveTab, setActiveTab] = useState(tabs[0].id);
 
   const [currentTab, setCurrentTab] = useState<Tab>(Tab.ARTICLE);
+
+  const dispatch = useAppDispatch();
+
+  const handleMoreBooks = useCallback(() => {
+    currentTab === Tab.ARTICLE && setStartArticles((startArticles) => startArticles + Tab.BLOGS_LIMIT);
+
+    currentTab === Tab.NEWS && setStartNews((startNews) => startNews + Tab.BLOGS_LIMIT);
+  }, [currentTab]);
+
+  const handlePreviousBooks = useCallback(() => {
+    currentTab === Tab.ARTICLE && setStartArticles((startArticles) => startArticles - Tab.BLOGS_LIMIT);
+
+    currentTab === Tab.NEWS && setStartNews((startNews) => startNews - Tab.BLOGS_LIMIT);
+  }, [currentTab]);
 
   const handleTab = useCallback((value: Tab, id: number) => {
     setCurrentTab(value);
@@ -50,10 +56,10 @@ export const HomePage = memo(() => {
         value: option.value,
         text: "",
         limit: Tab.BLOGS_LIMIT,
-        start: startPage,
+        start: startArticles,
       }),
     );
-  }, [dispatch, option.value, startPage]);
+  }, [dispatch, option.value, startArticles]);
 
   useEffect(() => {
     dispatch(
@@ -61,10 +67,10 @@ export const HomePage = memo(() => {
         value: option.value,
         text: "",
         limit: Tab.BLOGS_LIMIT,
-        start: startPage,
+        start: startNews,
       }),
     );
-  }, [dispatch, option.value, startPage]);
+  }, [dispatch, option.value, startNews]);
 
   return (
     <StyledHomePage>
@@ -85,12 +91,15 @@ export const HomePage = memo(() => {
         <BlogList posts={news} />
       )}
 
-      {/* <ShowPreviousBtn startPage={startPage} handleClick={handlePreviousBooks} />
-       */}
-
       {!isLoading ? (
         <ShowBtnGroup>
-          <ShowPreviousBtn startPage={startPage} handleClick={handlePreviousBooks} />
+          {currentTab === Tab.ARTICLE && (
+            <ShowPreviousBtn startPage={startArticles} handleClick={handlePreviousBooks} />
+          )}
+          {currentTab === Tab.NEWS && (
+            <ShowPreviousBtn startPage={startNews} handleClick={handlePreviousBooks} />
+          )}
+
           <ShowMoreBtn handleClick={handleMoreBooks} />
         </ShowBtnGroup>
       ) : null}
