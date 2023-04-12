@@ -2,9 +2,15 @@ import { BurgerIcon, CloseBurgerIcon } from "assets";
 import { memo } from "react";
 import { StyledBurgerMenuNav } from "./styles";
 
-export const BurgerMenuNav = memo(() => {
-  const isActiveBurger = false;
+interface BurgerMenuNavProps {
+  toggleMenu: () => void;
+  isMenuOpen: boolean;
+}
+
+export const BurgerMenuNav = memo(({ toggleMenu, isMenuOpen }: BurgerMenuNavProps) => {
   return (
-    <StyledBurgerMenuNav>{isActiveBurger ? <CloseBurgerIcon /> : <BurgerIcon />}</StyledBurgerMenuNav>
+    <StyledBurgerMenuNav onClick={toggleMenu}>
+      {isMenuOpen ? <CloseBurgerIcon /> : <BurgerIcon />}
+    </StyledBurgerMenuNav>
   );
 });
