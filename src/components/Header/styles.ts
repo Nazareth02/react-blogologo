@@ -7,6 +7,7 @@ const StyledHeader = styled.header<{ $isMenuOpen: boolean; $isMobile: boolean }>
   padding: 20px 32px;
   background: ${Color.HEADER};
   width: 100%;
+
   position: ${({ $isMenuOpen, $isMobile }) => $isMenuOpen && $isMobile && "fixed"};
 
   z-index: 5;

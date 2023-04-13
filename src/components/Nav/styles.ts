@@ -8,22 +8,20 @@ const StyledNav = styled(motion.nav)`
   display: flex;
   gap: 30px;
   align-items: center;
-
   ${Media.PRE_MOBILE} {
-    padding-top: 30px;
-
     position: fixed;
     top: 100px;
     left: 0;
     z-index: 10;
 
-    display: flex;
     flex-direction: column;
     justify-content: start;
     gap: 50px;
 
     width: 100vw;
     height: calc(100vh - 100px);
+    padding-top: 30px;
+
     background-color: ${Color.NAV};
     opacity: 0;
     transform: translateX(-100%);

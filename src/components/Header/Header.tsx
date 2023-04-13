@@ -11,6 +11,12 @@ export const Header = memo(() => {
   const { width = 0 } = useWindowSize();
   const isMobile = width < 609;
 
+  //preventing vertical scroll while isMenuOpen
+  isMenuOpen
+    ? document.body.setAttribute("style", "overflow: hidden")
+    : document.body.setAttribute("style", "overflow: 0");
+  //
+
   return (
     <StyledHeader $isMenuOpen={isMenuOpen} $isMobile={isMobile}>
       <Link to={ROUTES.HOME}>

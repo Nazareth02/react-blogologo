@@ -3,7 +3,6 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "routes";
 import { FavoritesSpan, HomeSpan, SearchSpan, SignUserInfo, StyledLink, StyledNav } from "./styles";
-import { ThemeToggleBtn } from "components";
 
 interface NavProps {
   isOpen: boolean;
