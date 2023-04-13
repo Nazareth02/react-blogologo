@@ -9,7 +9,7 @@ interface TogglerProps {
 export const ThemeToggleBtn = memo(({ handleClick, activeTheme }: TogglerProps) => {
   return (
     <StyledToggler onClick={handleClick}>
-      Change to <ThemeText>{activeTheme === "light" ? "dark" : "light"}</ThemeText> theme
+      <ThemeText>{activeTheme === "light" ? "dark" : "light"}</ThemeText> theme
     </StyledToggler>
   );
 });

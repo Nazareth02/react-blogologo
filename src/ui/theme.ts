@@ -10,7 +10,7 @@ const themeColors = css`
     --theme-navMenu: #e0dfe0;
   }
   html[theme="dark"] {
-    --theme-header: rgba(255, 255, 255, 0.1);
+    --theme-header: #46454b;
     --theme-bg: #313037;
     --theme-btn: linear-gradient(133.87deg, #4d0ac7 -10.18%, #912ef2 108.59%);
     --theme-text: #ffffff;

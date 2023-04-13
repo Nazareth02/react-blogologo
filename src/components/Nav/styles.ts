@@ -67,4 +67,13 @@ const HomeSpan = styled.span`
   color: ${Color.FONT};
 `;
 
-export { StyledNav, SignUserInfo, StyledLink, FavoritesSpan, HomeSpan };
+const SearchSpan = styled.span`
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 34px;
+  color: ${Color.FONT};
+`;
+
+export { StyledNav, SignUserInfo, StyledLink, FavoritesSpan, HomeSpan, SearchSpan };

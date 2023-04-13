@@ -2,7 +2,8 @@ import { FavoritesActiveIcon, SearchIcon, SingInIcon, SingUpIcon } from "assets"
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "routes";
-import { FavoritesSpan, HomeSpan, SignUserInfo, StyledLink, StyledNav } from "./styles";
+import { FavoritesSpan, HomeSpan, SearchSpan, SignUserInfo, StyledLink, StyledNav } from "./styles";
+import { ThemeToggleBtn } from "components";
 
 interface NavProps {
   isOpen: boolean;
@@ -33,7 +34,7 @@ export const Nav = memo(({ isOpen, isMobile, handleClose }: NavProps) => {
         {isMobile ? <FavoritesSpan>Favorites</FavoritesSpan> : <FavoritesActiveIcon />}
       </Link>
       <Link to={ROUTES.SEARCH} onClick={handleClose}>
-        <SearchIcon />
+        {isMobile ? <SearchSpan>Search</SearchSpan> : <SearchIcon />}
       </Link>
       {isAuth ? (
         <StyledLink to={ROUTES.ACCOUNT} onClick={handleClose}>
@@ -46,6 +47,7 @@ export const Nav = memo(({ isOpen, isMobile, handleClose }: NavProps) => {
           <SignUserInfo>Sign in</SignUserInfo>
         </StyledLink>
       )}
+      {/* {isMobile && <ThemeToggleBtn handleClick activeTheme />} */}
     </StyledNav>
   );
 });
