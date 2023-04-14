@@ -12,7 +12,7 @@ export const Header = memo(() => {
   const isMobile = width < 609;
 
   //preventing vertical scroll while isMenuOpen
-  isMenuOpen
+  isMenuOpen && isMobile
     ? document.body.setAttribute("style", "overflow: hidden")
     : document.body.setAttribute("style", "overflow: 0");
   //
