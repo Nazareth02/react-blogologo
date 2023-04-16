@@ -6,6 +6,7 @@ import { ReactComponent as SingUpIcon } from "./icons/sign-up.svg";
 import { ReactComponent as BurgerIcon } from "./icons/burger-icon.svg";
 import { ReactComponent as CloseBurgerIcon } from "./icons/close-icon.svg";
 import imageNotFound from "./img/imageNotFound.jpg";
+import { ReactComponent as WebSiteIcon } from "./icons/website-icon.svg";
 
 export {
   LogoIcon,
@@ -16,4 +17,5 @@ export {
   BurgerIcon,
   CloseBurgerIcon,
   imageNotFound,
+  WebSiteIcon,
 };

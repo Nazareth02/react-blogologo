@@ -13,6 +13,7 @@ import { Loader } from "./Loader/Loader";
 import { ErrorMessage } from "./ErrorMessage/ErrorMessage";
 import { ShowMoreBtn } from "./ShowMoreBtn/ShowMoreBtn";
 import { ShowPreviousBtn } from "./ShowPreviousBtn/ShowPreviousBtn";
+import { BlogContent } from "./BlogContent/BlogContent";
 
 export {
   Header,
@@ -30,4 +31,5 @@ export {
   ErrorMessage,
   ShowMoreBtn,
   ShowPreviousBtn,
+  BlogContent,
 };
