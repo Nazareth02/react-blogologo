@@ -1,8 +1,8 @@
-import { BlogContent, BlogList, BlogListItem, ErrorMessage, Loader } from "components";
+import { BlogContent, BlogList, ErrorMessage, Loader } from "components";
 import { memo, useCallback } from "react";
 import { RecommendationsCarousel, StyledBlogContentPage } from "./styles";
-import { generatePath, useLocation, useNavigate, useParams } from "react-router-dom";
-import { ROUTES } from "routes";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import { getBlogById, useAppSelector } from "store";
 
 export const ContentPage = memo(() => {
@@ -25,7 +25,7 @@ export const ContentPage = memo(() => {
         damping: 15,
       }}
     >
-      <BlogContent />
+      <BlogContent blogListItem={location.state.post} />
       {error && <ErrorMessage message={error} />}
       <RecommendationsCarousel
         initial={{ x: "-100%" }}

@@ -3,9 +3,7 @@ import { Color, Media } from "ui";
 
 const StyledBlogContent = styled.div`
   max-width: 1120px;
-
   width: 100%;
-
   margin: 0 auto;
 `;
 
@@ -72,7 +70,7 @@ const PostImage = styled.img`
 
   border-radius: 16px;
   object-fit: cover;
-  object-position: center;
+  object-position: 50% 20%;
 
   ${Media.LAPTOP_S} {
     height: 458px;
@@ -134,6 +132,40 @@ const SiteLink = styled.a`
   align-items: center;
   background: ${Color.NAV};
   border-radius: 5px;
+
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.08);
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+`;
+
+const FavoritesIconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 80px;
+  height: 50px;
+  align-items: center;
+  background: ${Color.NAV};
+  border-radius: 5px;
+
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.08);
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+`;
+const IconsWrapper = styled.div`
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
 `;
 
 export {
@@ -146,4 +178,6 @@ export {
   PostSummaryWrapper,
   Summary,
   SiteLink,
+  FavoritesIconWrapper,
+  IconsWrapper,
 };

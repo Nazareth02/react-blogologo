@@ -1,6 +1,8 @@
 import { memo, useCallback } from "react";
-import { useAppDispatch, useAppSelector, getBlogById } from "store";
+
 import {
+  FavoritesIconWrapper,
+  IconsWrapper,
   PostHome,
   PostImage,
   PostInfo,
@@ -12,14 +14,20 @@ import {
   Summary,
 } from "./styles";
 import { useNavigate } from "react-router-dom";
-import { WebSiteIcon } from "assets";
+import { AddFavoritesIcon, WebSiteIcon } from "assets";
 import { setImageNotFound } from "utils";
 
-export const BlogContent = memo(() => {
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+import { BlogItem } from "types";
 
-  const { isLoading, articlesPiece, newsPiece, error } = useAppSelector(getBlogById);
+interface BlogContentProps {
+  blogListItem: BlogItem;
+  //   onClick: (BlogItem: BlogItem) => void;
+}
+
+export const BlogContent = memo(({ blogListItem }: BlogContentProps) => {
+  const { id, imageUrl, title, summary, url } = blogListItem;
+
+  const navigate = useNavigate();
 
   const handleHome = useCallback(() => {
     navigate(-1);
@@ -29,22 +37,22 @@ export const BlogContent = memo(() => {
     <StyledBlogContent>
       <PostInfo>
         <PostHome onClick={handleHome}>Home </PostHome>
-        <PostNumber>/ Post 14278</PostNumber>
+        <PostNumber>/ Post {id}</PostNumber>
       </PostInfo>
 
-      <PostTitle>Astronauts prep for new solar arrays on nearly seven-hour spacewalk</PostTitle>
+      <PostTitle>{title}</PostTitle>
 
-      <PostImage src={"123"} alt="Image Not Found" onError={setImageNotFound} />
+      <PostImage src={imageUrl} alt="Image Not Found" onError={setImageNotFound} />
       <PostSummaryWrapper>
-        <Summary>
-          Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock
-          for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade
-          the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st
-          day in orbit, a U.S. record for a single spaceflight.
-        </Summary>
-        <SiteLink href={""} target="_blank">
-          <WebSiteIcon />
-        </SiteLink>
+        <Summary>{summary}</Summary>
+        <IconsWrapper>
+          <FavoritesIconWrapper>
+            <AddFavoritesIcon />
+          </FavoritesIconWrapper>
+          <SiteLink href={url} target="_blank">
+            <WebSiteIcon />
+          </SiteLink>
+        </IconsWrapper>
       </PostSummaryWrapper>
     </StyledBlogContent>
   );
