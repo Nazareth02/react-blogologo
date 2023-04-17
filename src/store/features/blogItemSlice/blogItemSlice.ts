@@ -13,7 +13,7 @@ export const fetchArticlesById = createAsyncThunk<BlogItem, { id: number }, { re
   "articles/fetchArticlesById",
   async (params, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`https://api.spaceflightnewsapi.net/v3/articles/${params.id}`);
+      const { data } = await axios.get(`https://api.spaceflightnewsapi.net/v3/articles154/${params.id}`);
 
       return data;
     } catch (error) {

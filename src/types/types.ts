@@ -12,7 +12,7 @@ interface TabOptions {
 }
 
 interface BlogItem {
-  id: string;
+  id: number;
   title: string;
   url: string;
   imageUrl: string;

@@ -10,7 +10,7 @@ const StyledNav = styled(motion.nav)`
   align-items: center;
   ${Media.PRE_MOBILE} {
     position: fixed;
-    top: 100px;
+    top: 99px;
     left: 0;
     z-index: 10;
 

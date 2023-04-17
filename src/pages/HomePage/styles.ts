@@ -1,6 +1,7 @@
 import { Media } from "ui";
 import { Color } from "ui";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const Title = styled.span`
   font-family: "Inter";
@@ -15,7 +16,7 @@ const Title = styled.span`
   }
 `;
 
-const StyledHomePage = styled.div`
+const StyledHomePage = styled(motion.div)`
   max-width: 1120px;
   width: 100%;
   margin: 0 auto;

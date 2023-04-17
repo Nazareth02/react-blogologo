@@ -12,7 +12,7 @@ interface BlogsState {
 
 export const fetchArticles = createAsyncThunk<
   BlogItem[],
-  { value: string; text: string; limit: Tab; start: number },
+  { value: string; text: string; limit: any; start: number },
   { rejectValue: string }
 >("articles/fetchArticles", async (params, { rejectWithValue }) => {
   try {

@@ -73,7 +73,15 @@ export const HomePage = memo(() => {
   }, [dispatch, option.value, startNews]);
 
   return (
-    <StyledHomePage>
+    <StyledHomePage
+      initial={{ x: "-100%" }}
+      animate={{ x: 0 }}
+      transition={{
+        type: "tween",
+        stiffness: 300,
+        damping: 15,
+      }}
+    >
       <Title>Blog</Title>
       <SortWidgetsGroup>
         <Tabs active={isActiveTab} options={tabs} handleClick={handleTab} />

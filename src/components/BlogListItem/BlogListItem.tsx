@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useCallback } from "react";
 import {
   CardDate,
   CardDesc,
@@ -10,8 +10,8 @@ import {
 import { BlogItem } from "types";
 import { setImageNotFound } from "utils";
 import dateFormat from "dateformat";
-import { getBlogById, useAppDispatch, useAppSelector } from "store";
-import { Loader } from "components";
+import { generatePath, useNavigate } from "react-router-dom";
+import { ROUTES } from "routes";
 
 interface BlogListItemProps {
   post: BlogItem;
@@ -19,10 +19,21 @@ interface BlogListItemProps {
 }
 
 export const BlogListItem = memo(({ post, posts }: BlogListItemProps) => {
+  const navigate = useNavigate();
+
   const { imageUrl, publishedAt, title, id } = post;
 
+  const handleBlogItem = useCallback(() => {
+    navigate(generatePath(ROUTES.HOME + ROUTES.CONTENT, { id: id }), {
+      state: {
+        post: post,
+        posts: posts,
+      },
+    });
+  }, [navigate, id, post, posts]);
+
   return (
-    <StyledBlogListItem>
+    <StyledBlogListItem onClick={handleBlogItem}>
       <CardImageWrap>
         <CardImage src={imageUrl} alt="Image not found" onError={setImageNotFound} />
       </CardImageWrap>

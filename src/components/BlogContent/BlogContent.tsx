@@ -12,7 +12,7 @@ import {
   Summary,
 } from "./styles";
 import { useNavigate } from "react-router-dom";
-import { WebSiteIcon, imageNotFound } from "assets";
+import { WebSiteIcon } from "assets";
 import { setImageNotFound } from "utils";
 
 export const BlogContent = memo(() => {
@@ -42,7 +42,7 @@ export const BlogContent = memo(() => {
           the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st
           day in orbit, a U.S. record for a single spaceflight.
         </Summary>
-        <SiteLink href={""}>
+        <SiteLink href={""} target="_blank">
           <WebSiteIcon />
         </SiteLink>
       </PostSummaryWrapper>
