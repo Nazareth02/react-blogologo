@@ -10,9 +10,6 @@ export const ContentPage = memo(() => {
 
   const { isLoading, error } = useAppSelector(getBlogById);
 
-  const navigate = useNavigate();
-  console.log(location.state.posts.length < 3);
-
   return isLoading ? (
     <Loader />
   ) : (

@@ -14,7 +14,7 @@ import {
   Summary,
 } from "./styles";
 import { useNavigate } from "react-router-dom";
-import { AddFavoritesIcon, WebSiteIcon } from "assets";
+import { AddFavoritesIcon, FavoritesActiveIcon, WebSiteIcon } from "assets";
 import { setImageNotFound } from "utils";
 
 import { BlogItem } from "types";
