@@ -60,6 +60,7 @@
   },
   "devDependencies": {
     "@types/dateformat": "^5.0.0",
+    "@types/estree": "^1.0.1",
     "gh-pages": "^5.0.0"
   }
 }

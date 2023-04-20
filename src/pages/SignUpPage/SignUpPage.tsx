@@ -1,16 +1,17 @@
 import { memo } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
-import { useForm } from "react-hook-form";
 import { AuthSubmitButton, InputGroup, StyledHookForm, StyledInput } from "./styles";
+import { fetchSignUpUser, getUser, useAppDispatch, useAppSelector } from "store";
+import { useForm } from "react-hook-form";
 
 export const SignUpPage = memo(() => {
+  const dispatch = useAppDispatch();
+
+  const { isLoading } = useAppSelector(getUser);
+
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = ({ email, password }: any) => {
-    createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
-      console.log(userCredential.user.email);
-    });
+  const onSubmit = (data: any) => {
+    dispatch(fetchSignUpUser(data));
   };
 
   return (

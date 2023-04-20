@@ -18,5 +18,3 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
-console.log(process.env.FIREBASE_API_KEY);
-console.log(process.env.FIREBASE_PROJECT_ID);
