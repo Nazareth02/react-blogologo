@@ -1,27 +1,38 @@
 import { memo } from "react";
 import { AuthSubmitButton, InputGroup, StyledHookForm, StyledInput } from "./styles";
 import { fetchSignUpUser, getUser, useAppDispatch, useAppSelector } from "store";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { Loader } from "components";
+import { useNavigate } from "react-router-dom";
+import { AuthFormValues } from "types/types";
 
 export const SignUpPage = memo(() => {
+  const navigate = useNavigate();
+
   const dispatch = useAppDispatch();
 
   const { isLoading } = useAppSelector(getUser);
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm<AuthFormValues>();
 
-  const onSubmit = (data: any) => {
-    dispatch(fetchSignUpUser(data));
+  const onSubmit: SubmitHandler<AuthFormValues> = async (authFormValues) => {
+    await dispatch(fetchSignUpUser(authFormValues)).unwrap();
+    await reset();
+    await navigate("/");
   };
 
   return (
     <StyledHookForm onSubmit={handleSubmit(onSubmit)}>
-      <InputGroup>
-        <StyledInput type="email" {...register("email", { required: true, maxLength: 30 })} />
-        <StyledInput type="password" {...register("password", { required: true, maxLength: 20 })} />
-      </InputGroup>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <InputGroup>
+          <StyledInput type="email" {...register("email", { required: true, maxLength: 30 })} />
+          <StyledInput type="password" {...register("password", { required: true, maxLength: 20 })} />
+        </InputGroup>
+      )}
 
-      <AuthSubmitButton type="submit">Submit form</AuthSubmitButton>
+      <AuthSubmitButton type="submit"> {isLoading ? "Loading..." : "Submit form"}</AuthSubmitButton>
     </StyledHookForm>
   );
 });

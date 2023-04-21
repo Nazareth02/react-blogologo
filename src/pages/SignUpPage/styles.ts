@@ -3,8 +3,8 @@ import styled from "styled-components";
 const StyledHookForm = styled.form`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 30px;
-
   max-width: 624px;
   max-height: 472px;
   padding: 40px;
@@ -57,8 +57,15 @@ const AuthSubmitButton = styled.button`
 
   background: #6c1bdb;
   border-radius: 4px;
-
+  transition: 0.3s;
   cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:active {
+    transform: scale(0.98);
+  }
 `;
 
 export { InputGroup, StyledInput, AuthSubmitButton, StyledHookForm };

@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { auth } from "../../../firebase";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { AuthFormValues } from "types/types";
 
 interface UserState {
   email: string | null;
@@ -8,20 +9,18 @@ interface UserState {
   isLoading: boolean;
 }
 
-export const fetchSignUpUser = createAsyncThunk<
-  Omit<UserState, "isLoading">,
-  { email: string; password: string }
->("user/fetchSignUpUser", async ({ email, password }) => {
-  // const auth = getAuth();
-
-  // try {
-  const { user } = await createUserWithEmailAndPassword(auth, email, password);
-  return {
-    email: user.email,
-    creationTime: user.metadata.creationTime ?? null,
-  };
-  // } catch (error) {}
-});
+export const fetchSignUpUser = createAsyncThunk<Omit<UserState, "isLoading">, AuthFormValues>(
+  "user/fetchSignUpUser",
+  async ({ email, password }) => {
+    // try {
+    const { user } = await createUserWithEmailAndPassword(auth, email, password);
+    return {
+      email: user.email,
+      creationTime: user.metadata.creationTime ?? null,
+    };
+    // } catch (error) {}
+  },
+);
 
 const initialState: UserState = {
   email: null,

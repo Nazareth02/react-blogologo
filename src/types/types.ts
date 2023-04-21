@@ -29,4 +29,9 @@ interface LaunchesProps {
   provider: string;
 }
 
-export type { SelectOptions, TabOptions, BlogItem };
+interface AuthFormValues {
+  email: string;
+  password: string;
+}
+
+export type { SelectOptions, TabOptions, BlogItem, AuthFormValues };
