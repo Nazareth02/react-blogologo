@@ -1,3 +1,4 @@
+import { FirebaseErrorMessage, getFirebaseErrorMessage } from "./firebaseAuthError";
 import { setImageNotFound } from "./setNotFoundImage";
 
-export { setImageNotFound };
+export { setImageNotFound, getFirebaseErrorMessage, FirebaseErrorMessage };

@@ -2,7 +2,7 @@ import { memo } from "react";
 import { AuthSubmitButton, InputGroup, StyledHookForm, StyledInput } from "./styles";
 import { fetchSignUpUser, getUser, useAppDispatch, useAppSelector } from "store";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Loader } from "components";
+import { ErrorMessage, Loader } from "components";
 import { useNavigate } from "react-router-dom";
 import { AuthFormValues } from "types/types";
 
@@ -11,7 +11,7 @@ export const SignUpPage = memo(() => {
 
   const dispatch = useAppDispatch();
 
-  const { isLoading } = useAppSelector(getUser);
+  const { isLoading, errorMessage } = useAppSelector(getUser);
 
   const { register, handleSubmit, reset } = useForm<AuthFormValues>();
 
@@ -31,7 +31,7 @@ export const SignUpPage = memo(() => {
           <StyledInput type="password" {...register("password", { required: true, maxLength: 20 })} />
         </InputGroup>
       )}
-
+      {errorMessage && <ErrorMessage message={errorMessage} />}
       <AuthSubmitButton type="submit"> {isLoading ? "Loading..." : "Submit form"}</AuthSubmitButton>
     </StyledHookForm>
   );
