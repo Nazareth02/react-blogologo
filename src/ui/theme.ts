@@ -8,6 +8,7 @@ const themeColors = css`
     --theme-text: #313037;
     --theme-footerText: rgba(49, 48, 55, 0.5);
     --theme-navMenu: #e0dfe0;
+    --theme-signText: #6c1bdb;
   }
   html[theme="dark"] {
     --theme-header: #46454b;
@@ -16,6 +17,7 @@ const themeColors = css`
     --theme-text: #ffffff;
     --theme-footerText: rgba(255, 255, 255, 0.5);
     --theme-navMenu: rgba(97, 95, 103, 1);
+    --theme-signText: #9370db;
   }
 `;
 

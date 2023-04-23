@@ -1,38 +1,22 @@
 import { memo } from "react";
-import { AuthSubmitButton, InputGroup, StyledHookForm, StyledInput } from "./styles";
-import { fetchSignUpUser, getUser, useAppDispatch, useAppSelector } from "store";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { ErrorMessage, Loader } from "components";
-import { useNavigate } from "react-router-dom";
-import { AuthFormValues } from "types/types";
+import { HomeRouteLink, PageName, StyledSignUpPage } from "./styles";
+import { SignUpForm } from "components";
+import { ROUTES } from "routes";
 
 export const SignUpPage = memo(() => {
-  const navigate = useNavigate();
-
-  const dispatch = useAppDispatch();
-
-  const { isLoading, errorMessage } = useAppSelector(getUser);
-
-  const { register, handleSubmit, reset } = useForm<AuthFormValues>();
-
-  const onSubmit: SubmitHandler<AuthFormValues> = async (authFormValues) => {
-    await dispatch(fetchSignUpUser(authFormValues)).unwrap();
-    await reset();
-    await navigate("/");
-  };
-
   return (
-    <StyledHookForm onSubmit={handleSubmit(onSubmit)}>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <InputGroup>
-          <StyledInput type="email" {...register("email", { required: true, maxLength: 30 })} />
-          <StyledInput type="password" {...register("password", { required: true, maxLength: 20 })} />
-        </InputGroup>
-      )}
-      {errorMessage && <ErrorMessage message={errorMessage} />}
-      <AuthSubmitButton type="submit"> {isLoading ? "Loading..." : "Submit form"}</AuthSubmitButton>
-    </StyledHookForm>
+    <StyledSignUpPage
+      initial={{ x: "-100%" }}
+      animate={{ x: 0 }}
+      transition={{
+        type: "tween",
+        stiffness: 300,
+        damping: 15,
+      }}
+    >
+      <HomeRouteLink to={ROUTES.HOME}>Back home</HomeRouteLink>
+      <PageName>Sign Up</PageName>
+      <SignUpForm />
+    </StyledSignUpPage>
   );
 });

@@ -15,4 +15,5 @@ export enum Color {
   FONT = "var(--theme-text)",
   FOOTER_TEXT = "var(--theme-footerText)",
   NAV = "var(--theme-navMenu)",
+  SIGN_TEXT = "var(--theme-signText)",
 }

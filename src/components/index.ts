@@ -14,6 +14,7 @@ import { ErrorMessage } from "./ErrorMessage/ErrorMessage";
 import { ShowMoreBtn } from "./ShowMoreBtn/ShowMoreBtn";
 import { ShowPreviousBtn } from "./ShowPreviousBtn/ShowPreviousBtn";
 import { BlogContent } from "./BlogContent/BlogContent";
+import { SignUpForm } from "./SignUpForm/SignUpForm";
 
 export {
   Header,
@@ -32,4 +33,5 @@ export {
   ShowMoreBtn,
   ShowPreviousBtn,
   BlogContent,
+  SignUpForm,
 };

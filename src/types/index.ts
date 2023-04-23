@@ -1,3 +1,3 @@
-import { BlogItem, SelectOptions, TabOptions } from "./types";
+import { AuthFormValues, BlogItem, SelectOptions, TabOptions } from "./types";
 
-export type { SelectOptions, TabOptions, BlogItem };
+export type { SelectOptions, TabOptions, BlogItem, AuthFormValues };

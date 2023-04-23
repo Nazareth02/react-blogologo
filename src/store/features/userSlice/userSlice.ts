@@ -10,10 +10,11 @@ interface UserState {
   creationTime: string | null;
   isLoading: boolean;
   errorMessage: string | null;
+  isAuth: boolean;
 }
 
 export const fetchSignUpUser = createAsyncThunk<
-  Omit<UserState, "isLoading" | "errorMessage">,
+  Pick<UserState, "email" | "creationTime">,
   AuthFormValues,
   { rejectValue: FirebaseErrorMessage }
 >("user/fetchSignUpUser", async ({ email, password }, { rejectWithValue }) => {
@@ -34,6 +35,7 @@ const initialState: UserState = {
   creationTime: null,
   isLoading: false,
   errorMessage: null,
+  isAuth: false,
 };
 
 const userSlice = createSlice({
@@ -49,6 +51,7 @@ const userSlice = createSlice({
       state.email = payload.email;
       state.creationTime = payload.creationTime;
       state.isLoading = false;
+      state.isAuth = true;
     });
     builder.addCase(fetchSignUpUser.rejected, (state, { payload }) => {
       if (payload) {
