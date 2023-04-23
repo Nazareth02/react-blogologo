@@ -15,6 +15,7 @@ import { ShowMoreBtn } from "./ShowMoreBtn/ShowMoreBtn";
 import { ShowPreviousBtn } from "./ShowPreviousBtn/ShowPreviousBtn";
 import { BlogContent } from "./BlogContent/BlogContent";
 import { SignUpForm } from "./SignUpForm/SignUpForm";
+import { SignInForm } from "./SingInForm/SingInForm";
 
 export {
   Header,
@@ -34,4 +35,5 @@ export {
   ShowPreviousBtn,
   BlogContent,
   SignUpForm,
+  SignInForm,
 };

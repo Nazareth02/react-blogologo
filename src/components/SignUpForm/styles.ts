@@ -45,7 +45,6 @@ const StyledInput = styled.input`
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-  color: inherit;
 
   background: #ffffff;
   border: 1px solid rgba(49, 48, 55, 0.1);

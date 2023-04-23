@@ -1,14 +1,15 @@
+import { motion } from "framer-motion";
+import { HomeRouteLink, PageName } from "pages/SignUpPage/styles";
 import styled from "styled-components";
-import { Color } from "ui";
 
-const SignInText = styled.h2`
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 56px;
-  line-height: 80px;
-  align-items: center;
-  color: ${Color.FONT};
+const StyledSignInPage = styled(motion.div)`
+  max-width: 1120px;
+
+  margin: auto;
 `;
 
-export { SignInText };
+const HomeRoute = styled(HomeRouteLink)``;
+
+const PageLabel = styled(PageName)``;
+
+export { StyledSignInPage, HomeRoute, PageLabel };

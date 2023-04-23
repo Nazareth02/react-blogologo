@@ -1,21 +1,23 @@
+import { SignInForm } from "components";
 import { memo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ROUTES } from "routes";
-import { SignInText } from "./styles";
+import { HomeRoute, PageLabel, StyledSignInPage } from "./styles";
 
 export const SignInPage = memo(() => {
-  const navigate = useNavigate();
-
   return (
-    <div>
-      <span>
-        <Link to={ROUTES.HOME}>Back to home</Link>
-      </span>
-      <SignInText>Sign In</SignInText>
-      <span>
-        Don't have an account?
-        <Link to={ROUTES.HOME + ROUTES.SIGN_UP}> Sign Up</Link>
-      </span>
-    </div>
+    <StyledSignInPage
+      initial={{ x: "-100%" }}
+      animate={{ x: 0 }}
+      transition={{
+        type: "tween",
+        stiffness: 300,
+        damping: 15,
+      }}
+    >
+      <HomeRoute to={ROUTES.HOME}>Back home</HomeRoute>
+      <PageLabel>Sign In</PageLabel>
+      <SignInForm />
+    </StyledSignInPage>
   );
 });
