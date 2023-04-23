@@ -6,4 +6,5 @@ export enum ROUTES {
   SIGN_UP = "sign-up",
   CONTENT = "content/:id",
   ACCOUNT = "account",
+  RESET = "reset",
 }

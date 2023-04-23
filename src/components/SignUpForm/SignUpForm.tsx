@@ -58,7 +58,7 @@ export const SignUpForm = memo(() => {
         </InputGroup>
       )}
       {errorMessage && <ErrorMessage message={errorMessage} />}
-      <AuthSubmitButton type="submit"> {isLoading ? "Loading..." : "Submit form"}</AuthSubmitButton>
+      <AuthSubmitButton type="submit"> {isLoading ? "Loading..." : "Sign Up"}</AuthSubmitButton>
       <AccountExistence>
         Already have an account? <SignPageLink to={ROUTES.HOME + ROUTES.SIGN_IN}>Sign in</SignPageLink>
       </AccountExistence>

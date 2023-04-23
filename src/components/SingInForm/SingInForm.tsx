@@ -11,6 +11,7 @@ import {
   EmailSpan,
   InputWrapper,
   PasswordSpan,
+  ResetPasswordLink,
   SignUpLink,
   SingInInput,
   StyledSingInForm,
@@ -58,7 +59,8 @@ export const SignInForm = memo(() => {
         </InputWrapper>
       )}
       {errorMessage && <ErrorMessage message={errorMessage} />}
-      <SubmitButton type="submit"> {isLoading ? "Loading..." : "Submit form"}</SubmitButton>
+      <ResetPasswordLink to={ROUTES.HOME + ROUTES.RESET}>Forgot password?</ResetPasswordLink>
+      <SubmitButton type="submit"> {isLoading ? "Loading..." : "Sign In"}</SubmitButton>
       <AccountExistenceSpan>
         Don’t have an account? <SignUpLink to={ROUTES.HOME + ROUTES.SIGN_UP}>Sign Up</SignUpLink>
       </AccountExistenceSpan>
