@@ -1,19 +1,42 @@
 import React, { memo } from "react";
 import { getUser, useAppSelector } from "store";
+import {
+  CreationInfo,
+  EmailInfo,
+  FavoritesLink,
+  NameInfo,
+  NotSignedInfo,
+  StyledAccountPage,
+  UserInfoGroup,
+} from "./styles";
+import { ROUTES } from "routes";
 
 export const AccountPage = memo(() => {
-  const { isAuth, email, creationTime } = useAppSelector(getUser);
+  const { isAuth, email, creationTime, name } = useAppSelector(getUser);
 
   return (
-    <div>
+    <StyledAccountPage
+      initial={{ x: "-100%" }}
+      animate={{ x: 0 }}
+      transition={{
+        type: "tween",
+        stiffness: 300,
+        damping: 15,
+      }}
+    >
       {isAuth ? (
-        <>
-          <span>Your email:{email}</span>
-          <span>Creation time:{creationTime}</span>
-        </>
+        <UserInfoGroup>
+          <NameInfo>
+            Hello, {name?.charAt(0).toUpperCase()}
+            {name?.slice(1)}!
+          </NameInfo>
+          <EmailInfo>Your email:{email} </EmailInfo>
+          <CreationInfo>Creation time:{creationTime}</CreationInfo>
+          <FavoritesLink to={ROUTES.HOME + ROUTES.FAVORITES}>Go to favorites</FavoritesLink>
+        </UserInfoGroup>
       ) : (
-        <span>Please, sign in</span>
+        <NotSignedInfo>Please, sign in</NotSignedInfo>
       )}
-    </div>
+    </StyledAccountPage>
   );
 });

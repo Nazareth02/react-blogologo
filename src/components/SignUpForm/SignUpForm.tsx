@@ -9,6 +9,7 @@ import {
   PasswordLabel,
   AccountExistence,
   SignPageLink,
+  NameLabel,
 } from "./styles";
 import { fetchSignUpUser, getUser, useAppDispatch, useAppSelector } from "store";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -38,12 +39,27 @@ export const SignUpForm = memo(() => {
         <Loader />
       ) : (
         <InputGroup>
+          <NameLabel>
+            Name
+            <StyledInput
+              placeholder="Your name"
+              type="name"
+              {...register("userName", {
+                required: "Name is required",
+                maxLength: { value: 20, message: "Too many symbols" },
+              })}
+            />
+          </NameLabel>
           <EmailLabel>
             Email
             <StyledInput
               placeholder="Your email"
               type="email"
-              {...register("email", { required: true, maxLength: 30 })}
+              {...register("email", {
+                required: "Email is required",
+                maxLength: { value: 30, message: "*max characters: 30" },
+                pattern: { value: /^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/g, message: "Enter a valid email" },
+              })}
             />
           </EmailLabel>
 
@@ -52,7 +68,14 @@ export const SignUpForm = memo(() => {
             <StyledInput
               placeholder="Your password"
               type="password"
-              {...register("password", { required: true, maxLength: 20 })}
+              {...register("password", {
+                required: "Password is required",
+                maxLength: { value: 30, message: "*max characters: 30" },
+                minLength: {
+                  value: 6,
+                  message: "*min characters: 6",
+                },
+              })}
             />
           </PasswordLabel>
         </InputGroup>

@@ -30,8 +30,14 @@ interface LaunchesProps {
 }
 
 interface AuthFormValues {
+  userName: string;
   email: string;
   password: string;
 }
 
-export type { SelectOptions, TabOptions, BlogItem, AuthFormValues };
+interface SingInFormValues {
+  email: string;
+  password: string;
+}
+
+export type { SelectOptions, TabOptions, BlogItem, AuthFormValues, SingInFormValues };

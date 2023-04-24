@@ -2,8 +2,23 @@ import { Outlet } from "react-router-dom";
 import { Footer, Header } from "components";
 import { StyledMainTemplate, MainTemplateWrapper, OutletWrap } from "./styles";
 import { memo, useCallback, useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { setAuth, unsetAuth, useAppDispatch } from "store";
+import { auth } from "../../firebase";
 
 export const MainTemplate = memo(() => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(setAuth(user));
+      } else {
+        dispatch(unsetAuth());
+      }
+    });
+  }, [dispatch]);
+
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {

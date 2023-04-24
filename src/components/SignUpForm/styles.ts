@@ -80,7 +80,7 @@ const AuthSubmitButton = styled.button`
   line-height: 24px;
   color: #ffffff;
 
-  background: #6c1bdb;
+  background: ${Color.PRIMARY};
   border-radius: 4px;
   transition: 0.3s;
   cursor: pointer;
@@ -123,6 +123,8 @@ const EmailLabel = styled.label`
     font-size: 12px;
   }
 `;
+
+const NameLabel = styled(EmailLabel)``;
 
 const PasswordLabel = styled.label`
   display: grid;
@@ -194,4 +196,5 @@ export {
   EmailLabel,
   AccountExistence,
   SignPageLink,
+  NameLabel,
 };

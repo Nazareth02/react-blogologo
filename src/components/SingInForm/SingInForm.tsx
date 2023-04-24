@@ -4,8 +4,8 @@ import { memo } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "routes";
-import { useAppDispatch, useAppSelector, getUser, fetchSignUpUser } from "store";
-import { AuthFormValues } from "types";
+import { useAppDispatch, useAppSelector, getUser, fetchSignInUser } from "store";
+import { SingInFormValues } from "types";
 import {
   AccountExistenceSpan,
   EmailSpan,
@@ -25,10 +25,15 @@ export const SignInForm = memo(() => {
 
   const { isLoading, errorMessage } = useAppSelector(getUser);
 
-  const { register, handleSubmit, reset } = useForm<AuthFormValues>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<SingInFormValues>();
 
-  const onSubmit: SubmitHandler<AuthFormValues> = async (authFormValues) => {
-    await dispatch(fetchSignUpUser(authFormValues)).unwrap();
+  const onSubmit: SubmitHandler<SingInFormValues> = async (authFormValues) => {
+    await dispatch(fetchSignInUser(authFormValues)).unwrap();
     await reset();
     await navigate(ROUTES.HOME + ROUTES.ACCOUNT);
   };
@@ -47,6 +52,7 @@ export const SignInForm = memo(() => {
               {...register("email", { required: true, maxLength: 30 })}
             />
           </EmailSpan>
+          {errors.email?.message && <ErrorMessage message={errors.email.message} />}
 
           <PasswordSpan>
             Password
@@ -56,6 +62,7 @@ export const SignInForm = memo(() => {
               {...register("password", { required: true, maxLength: 20 })}
             />
           </PasswordSpan>
+          {errors.password?.message && <ErrorMessage message={errors.password.message} />}
         </InputWrapper>
       )}
       {errorMessage && <ErrorMessage message={errorMessage} />}

@@ -1,28 +1,59 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { auth } from "../../../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { AuthFormValues } from "types/types";
+import {
+  User,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { AuthFormValues, SingInFormValues } from "types";
 import { FirebaseError } from "firebase/app";
 import { FirebaseErrorMessage, getFirebaseErrorMessage } from "utils";
 
 interface UserState {
+  name: string | null;
   email: string | null;
   creationTime: string | null;
   isLoading: boolean;
   errorMessage: string | null;
   isAuth: boolean;
+  uid: string | null;
 }
 
 export const fetchSignUpUser = createAsyncThunk<
-  Pick<UserState, "email" | "creationTime">,
+  Pick<UserState, "email" | "creationTime" | "name">,
   AuthFormValues,
   { rejectValue: FirebaseErrorMessage }
->("user/fetchSignUpUser", async ({ email, password }, { rejectWithValue }) => {
+>("user/fetchSignUpUser", async ({ email, password, userName }, { rejectWithValue }) => {
   try {
     const { user } = await createUserWithEmailAndPassword(auth, email, password);
+    const name = userName as string;
+    await updateProfile(auth.currentUser as User, { displayName: name });
+
     return {
       email: user.email,
       creationTime: user.metadata.creationTime ?? null,
+      name: user.displayName,
+      uid: null,
+    };
+  } catch (error) {
+    const firebaseError = error as FirebaseError;
+    return rejectWithValue(getFirebaseErrorMessage(firebaseError.code));
+  }
+});
+
+export const fetchSignInUser = createAsyncThunk<
+  Pick<UserState, "email" | "uid" | "name">,
+  SingInFormValues,
+  { rejectValue: FirebaseErrorMessage }
+>("user/fetchSignInUser", async ({ email, password }, { rejectWithValue }) => {
+  try {
+    const { user } = await signInWithEmailAndPassword(auth, email, password);
+    return {
+      email: user.email,
+      password: password,
+      uid: user.uid,
+      name: user.displayName,
     };
   } catch (error) {
     const firebaseError = error as FirebaseError;
@@ -31,17 +62,37 @@ export const fetchSignUpUser = createAsyncThunk<
 });
 
 const initialState: UserState = {
+  name: null,
   email: null,
   creationTime: null,
   isLoading: false,
   errorMessage: null,
   isAuth: false,
+  uid: null,
 };
 
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    updateUserName: (state, action: PayloadAction<string>) => {
+      if (action.payload) state.email = action.payload;
+    },
+    setAuth: (state, { payload }) => {
+      state.isAuth = true;
+      state.name = payload.displayName;
+      state.creationTime = payload.metadata.creationTime;
+      state.email = payload.email;
+      state.uid = payload.uid;
+    },
+
+    unsetAuth: (state) => {
+      state.isAuth = false;
+      state.name = initialState.name;
+      state.email = initialState.email;
+      state.uid = initialState.uid;
+    },
+  },
   extraReducers(builder) {
     builder.addCase(fetchSignUpUser.pending, (state) => {
       state.isLoading = true;
@@ -62,4 +113,5 @@ const userSlice = createSlice({
   },
 });
 
+export const { updateUserName, setAuth, unsetAuth } = userSlice.actions;
 export default userSlice.reducer;
