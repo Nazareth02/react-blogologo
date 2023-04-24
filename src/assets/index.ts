@@ -8,6 +8,7 @@ import { ReactComponent as BurgerIcon } from "./icons/burger-icon.svg";
 import { ReactComponent as CloseBurgerIcon } from "./icons/close-icon.svg";
 import imageNotFound from "./img/imageNotFound.jpg";
 import { ReactComponent as WebSiteIcon } from "./icons/website-icon.svg";
+import { ReactComponent as LogOutIcon } from "./icons/log-out.svg";
 
 export {
   LogoIcon,
@@ -20,4 +21,5 @@ export {
   imageNotFound,
   WebSiteIcon,
   AddFavoritesIcon,
+  LogOutIcon,
 };
