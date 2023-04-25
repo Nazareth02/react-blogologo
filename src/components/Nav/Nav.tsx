@@ -3,6 +3,7 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "routes";
 import {
+  AccountSpan,
   FavoritesSpan,
   HomeSpan,
   NotSignedUserInfo,
@@ -46,8 +47,17 @@ export const Nav = memo(({ isOpen, isMobile, handleClose }: NavProps) => {
       </Link>
       {isAuth ? (
         <StyledLink to={ROUTES.ACCOUNT} onClick={handleClose}>
-          <SingUpIcon />
-          <SignUserInfo>{name?.charAt(0).toUpperCase()}</SignUserInfo>
+          {isMobile ? (
+            <>
+              <SingInIcon />
+              <AccountSpan>Account</AccountSpan>
+            </>
+          ) : (
+            <>
+              <SingUpIcon />
+              <SignUserInfo>{name?.charAt(0).toUpperCase()}</SignUserInfo>
+            </>
+          )}
         </StyledLink>
       ) : (
         <StyledLink to={ROUTES.SIGN_IN} onClick={handleClose}>

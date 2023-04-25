@@ -68,6 +68,16 @@ const FavoritesSpan = styled.span`
   color: ${Color.FONT};
 `;
 
+const AccountSpan = styled.span`
+  margin-left: 5px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 34px;
+  color: ${Color.FONT};
+`;
+
 const HomeSpan = styled.span`
   font-family: "Inter";
   font-style: normal;
@@ -86,4 +96,13 @@ const SearchSpan = styled.span`
   color: ${Color.FONT};
 `;
 
-export { StyledNav, SignUserInfo, StyledLink, FavoritesSpan, HomeSpan, SearchSpan, NotSignedUserInfo };
+export {
+  StyledNav,
+  SignUserInfo,
+  StyledLink,
+  FavoritesSpan,
+  HomeSpan,
+  SearchSpan,
+  NotSignedUserInfo,
+  AccountSpan,
+};

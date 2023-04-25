@@ -26,8 +26,8 @@ export const ResetForm = memo(() => {
 
   const onSubmit: SubmitHandler<ResetFormValues> = async (authFormValues) => {
     await dispatch(fetchResetUser(authFormValues)).unwrap();
+    // await toggleModal()
     await reset();
-    // await navigate(ROUTES.HOME + ROUTES.ACCOUNT);
   };
 
   return (
