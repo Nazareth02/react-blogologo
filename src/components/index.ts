@@ -16,6 +16,8 @@ import { ShowPreviousBtn } from "./ShowPreviousBtn/ShowPreviousBtn";
 import { BlogContent } from "./BlogContent/BlogContent";
 import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { SignInForm } from "./SingInForm/SingInForm";
+import { ResetForm } from "./ResetForm/ResetForm";
+import { InputErrorText } from "./InputErrorText/InputErrorText";
 
 export {
   Header,
@@ -36,4 +38,6 @@ export {
   BlogContent,
   SignUpForm,
   SignInForm,
+  ResetForm,
+  InputErrorText,
 };

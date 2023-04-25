@@ -35,9 +35,13 @@ interface AuthFormValues {
   password: string;
 }
 
+interface ResetFormValues {
+  email: string;
+}
+
 interface SingInFormValues {
   email: string;
   password: string;
 }
 
-export type { SelectOptions, TabOptions, BlogItem, AuthFormValues, SingInFormValues };
+export type { SelectOptions, TabOptions, BlogItem, AuthFormValues, SingInFormValues, ResetFormValues };

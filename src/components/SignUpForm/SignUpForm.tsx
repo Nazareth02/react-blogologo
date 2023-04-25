@@ -1,4 +1,4 @@
-import { ErrorMessage } from "components";
+import { ErrorMessage, InputErrorText } from "components";
 import { Loader } from "components";
 import {
   StyledHookForm,
@@ -17,6 +17,7 @@ import { ROUTES } from "routes";
 import { AuthFormValues } from "types";
 import { useNavigate } from "react-router-dom";
 import { memo } from "react";
+import { validateEmail, validateName, validatePassword } from "utils";
 
 export const SignUpForm = memo(() => {
   const navigate = useNavigate();
@@ -25,7 +26,12 @@ export const SignUpForm = memo(() => {
 
   const { isLoading, errorMessage } = useAppSelector(getUser);
 
-  const { register, handleSubmit, reset } = useForm<AuthFormValues>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<AuthFormValues>();
 
   const onSubmit: SubmitHandler<AuthFormValues> = async (authFormValues) => {
     await dispatch(fetchSignUpUser(authFormValues)).unwrap();
@@ -41,26 +47,13 @@ export const SignUpForm = memo(() => {
         <InputGroup>
           <NameLabel>
             Name
-            <StyledInput
-              placeholder="Your name"
-              type="name"
-              {...register("userName", {
-                required: "Name is required",
-                maxLength: { value: 20, message: "Too many symbols" },
-              })}
-            />
+            <StyledInput placeholder="Your name" type="name" {...register("userName", validateName())} />
+            {errors.userName?.message && <InputErrorText message={errors.userName.message} />}
           </NameLabel>
           <EmailLabel>
             Email
-            <StyledInput
-              placeholder="Your email"
-              type="email"
-              {...register("email", {
-                required: "Email is required",
-                maxLength: { value: 30, message: "*max characters: 30" },
-                pattern: { value: /^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/g, message: "Enter a valid email" },
-              })}
-            />
+            <StyledInput placeholder="Your email" type="text" {...register("email", validateEmail())} />
+            {errors.email?.message && <InputErrorText message={errors.email.message} />}
           </EmailLabel>
 
           <PasswordLabel>
@@ -68,15 +61,9 @@ export const SignUpForm = memo(() => {
             <StyledInput
               placeholder="Your password"
               type="password"
-              {...register("password", {
-                required: "Password is required",
-                maxLength: { value: 30, message: "*max characters: 30" },
-                minLength: {
-                  value: 6,
-                  message: "*min characters: 6",
-                },
-              })}
+              {...register("password", validatePassword())}
             />
+            {errors.password?.message && <InputErrorText message={errors.password.message} />}
           </PasswordLabel>
         </InputGroup>
       )}

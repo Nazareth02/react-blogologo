@@ -1,6 +1,7 @@
 import { fetchArticlesById, fetchNewsById } from "./features/blogItemSlice/blogItemSlice";
 import { fetchArticles, fetchNews } from "./features/blogsSlice/blogsSlice";
 import {
+  fetchResetUser,
   fetchSignInUser,
   fetchSignUpUser,
   logOut,
@@ -29,4 +30,5 @@ export {
   updateUserName,
   setAuth,
   logOut,
+  fetchResetUser,
 };

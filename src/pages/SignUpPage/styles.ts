@@ -17,7 +17,7 @@ const HomeRouteLink = styled(Link)`
   line-height: 24px;
   color: ${Color.FONT};
   opacity: 0.8;
-
+  transition: 0.4s;
   cursor: pointer;
 
   &:hover {
@@ -45,7 +45,8 @@ const PageName = styled.h2`
   }
   ${Media.MOBILE_L} {
     margin-top: 15px;
-    font-size: 40px;
+    font-size: 32px;
+    line-height: 60px;
   }
 `;
 

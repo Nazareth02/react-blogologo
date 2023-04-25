@@ -3,10 +3,12 @@ import { auth } from "../../../firebase";
 import {
   User,
   createUserWithEmailAndPassword,
+  getAuth,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { AuthFormValues, SingInFormValues } from "types";
+import { AuthFormValues, ResetFormValues, SingInFormValues } from "types";
 import { FirebaseError } from "firebase/app";
 import { FirebaseErrorMessage, getFirebaseErrorMessage } from "utils";
 
@@ -61,6 +63,20 @@ export const fetchSignInUser = createAsyncThunk<
   }
 });
 
+export const fetchResetUser = createAsyncThunk<
+  void,
+  ResetFormValues,
+  { rejectValue: FirebaseErrorMessage }
+>("user/fetchResetUser", async ({ email }, { rejectWithValue }) => {
+  try {
+    const auth = getAuth();
+    sendPasswordResetEmail(auth, email);
+  } catch (error) {
+    const firebaseError = error as FirebaseError;
+    return rejectWithValue(getFirebaseErrorMessage(firebaseError.code));
+  }
+});
+
 const initialState: UserState = {
   name: null,
   email: null,
@@ -95,6 +111,7 @@ const userSlice = createSlice({
       state.errorMessage = null;
     });
     builder.addCase(fetchSignUpUser.fulfilled, (state, { payload }) => {
+      state.errorMessage = null;
       state.email = payload.email;
       state.creationTime = payload.creationTime;
       state.isLoading = false;
@@ -103,6 +120,33 @@ const userSlice = createSlice({
     builder.addCase(fetchSignUpUser.rejected, (state, { payload }) => {
       if (payload) {
         state.isLoading = false;
+        state.errorMessage = payload;
+      }
+    });
+
+    builder.addCase(fetchSignInUser.pending, (state) => {
+      state.isAuth = false;
+      state.errorMessage = null;
+    });
+    builder.addCase(fetchSignInUser.fulfilled, (state, { payload }) => {
+      state.isAuth = true;
+      state.errorMessage = null;
+      state.email = payload.email;
+    });
+    builder.addCase(fetchSignInUser.rejected, (state, { payload }) => {
+      if (payload) {
+        state.isAuth = false;
+        state.errorMessage = payload;
+      }
+    });
+    builder.addCase(fetchResetUser.pending, (state) => {
+      state.errorMessage = null;
+    });
+    builder.addCase(fetchResetUser.fulfilled, (state) => {
+      state.errorMessage = null;
+    });
+    builder.addCase(fetchResetUser.rejected, (state, { payload }) => {
+      if (payload) {
         state.errorMessage = payload;
       }
     });

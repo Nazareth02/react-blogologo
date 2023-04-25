@@ -1,4 +1,4 @@
-import { ErrorMessage } from "components";
+import { ErrorMessage, InputErrorText } from "components";
 import { Loader } from "components";
 import { memo } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -17,6 +17,7 @@ import {
   StyledSingInForm,
   SubmitButton,
 } from "./styles";
+import { validateEmail } from "utils";
 
 export const SignInForm = memo(() => {
   const navigate = useNavigate();
@@ -46,13 +47,9 @@ export const SignInForm = memo(() => {
         <InputWrapper>
           <EmailSpan>
             Email
-            <SingInInput
-              placeholder="Your email"
-              type="email"
-              {...register("email", { required: true, maxLength: 30 })}
-            />
+            <SingInInput placeholder="Your email" type="text" {...register("email", validateEmail())} />
+            {errors.email?.message && <InputErrorText message={errors.email.message} />}
           </EmailSpan>
-          {errors.email?.message && <ErrorMessage message={errors.email.message} />}
 
           <PasswordSpan>
             Password
@@ -61,8 +58,8 @@ export const SignInForm = memo(() => {
               type="password"
               {...register("password", { required: true, maxLength: 20 })}
             />
+            {errors.password?.message && <InputErrorText message={errors.password.message} />}
           </PasswordSpan>
-          {errors.password?.message && <ErrorMessage message={errors.password.message} />}
         </InputWrapper>
       )}
       {errorMessage && <ErrorMessage message={errorMessage} />}
