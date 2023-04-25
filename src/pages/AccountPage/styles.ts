@@ -193,7 +193,9 @@ const NavBtnGroup = styled.div`
   justify-content: space-between;
 `;
 
-const NotSignedInfo = styled.h2``;
+const NotSignedInfo = styled.h2`
+  text-align: center;
+`;
 
 export {
   StyledAccountPage,

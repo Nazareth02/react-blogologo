@@ -3,7 +3,7 @@ import { Footer, Header } from "components";
 import { StyledMainTemplate, MainTemplateWrapper, OutletWrap } from "./styles";
 import { memo, useCallback, useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { setAuth, unsetAuth, useAppDispatch } from "store";
+import { logOut, setAuth, useAppDispatch } from "store";
 import { auth } from "../../firebase";
 
 export const MainTemplate = memo(() => {
@@ -14,7 +14,7 @@ export const MainTemplate = memo(() => {
       if (user) {
         dispatch(setAuth(user));
       } else {
-        dispatch(unsetAuth());
+        dispatch(logOut());
       }
     });
   }, [dispatch]);

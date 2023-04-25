@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { getUser, useAppSelector } from "store";
+import { getUser, logOut, useAppDispatch, useAppSelector } from "store";
 import {
   BackHomeLink,
   CreationInfo,
@@ -15,9 +15,18 @@ import {
 import { ROUTES } from "routes";
 import dateFormat from "dateformat";
 import { LogOutIcon } from "assets";
+import { useNavigate } from "react-router-dom";
 
 export const AccountPage = memo(() => {
   const { isAuth, email, creationTime, name } = useAppSelector(getUser);
+
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    dispatch(logOut());
+    navigate(ROUTES.HOME);
+  };
 
   return (
     <StyledAccountPage
@@ -31,9 +40,11 @@ export const AccountPage = memo(() => {
     >
       <NavBtnGroup>
         <BackHomeLink to={ROUTES.HOME}>Back home</BackHomeLink>
-        <LogOutBtn>
-          Log out <LogOutIcon />
-        </LogOutBtn>
+        {isAuth && (
+          <LogOutBtn onClick={handleLogOut}>
+            Log out <LogOutIcon />
+          </LogOutBtn>
+        )}
       </NavBtnGroup>
 
       {isAuth ? (

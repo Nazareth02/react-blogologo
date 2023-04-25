@@ -3,8 +3,8 @@ import { fetchArticles, fetchNews } from "./features/blogsSlice/blogsSlice";
 import {
   fetchSignInUser,
   fetchSignUpUser,
+  logOut,
   setAuth,
-  unsetAuth,
   updateUserName,
 } from "./features/userSlice/userSlice";
 import { useAppDispatch, useAppSelector } from "./hooks/hooks";
@@ -28,5 +28,5 @@ export {
   fetchSignInUser,
   updateUserName,
   setAuth,
-  unsetAuth,
+  logOut,
 };

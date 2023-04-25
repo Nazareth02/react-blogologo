@@ -28,15 +28,28 @@ const StyledNav = styled(motion.nav)`
   }
 `;
 const SignUserInfo = styled.span`
+  position: absolute;
+  top: 8px;
+  left: 28px;
+  /* margin-left: 10px; */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 46px;
+  color: ${Color.WHITE};
+`;
+const NotSignedUserInfo = styled.span`
   margin-left: 10px;
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
-  line-height: 34px;
+  line-height: 24px;
   color: ${Color.FONT};
 `;
 const StyledLink = styled(Link)`
+  position: relative;
   display: flex;
   align-items: center;
   height: 100%;
@@ -74,4 +87,4 @@ const SearchSpan = styled.span`
   color: ${Color.FONT};
 `;
 
-export { StyledNav, SignUserInfo, StyledLink, FavoritesSpan, HomeSpan, SearchSpan };
+export { StyledNav, SignUserInfo, StyledLink, FavoritesSpan, HomeSpan, SearchSpan, NotSignedUserInfo };

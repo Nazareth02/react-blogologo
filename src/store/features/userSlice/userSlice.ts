@@ -78,19 +78,15 @@ const userSlice = createSlice({
     updateUserName: (state, action: PayloadAction<string>) => {
       if (action.payload) state.email = action.payload;
     },
+    logOut: (state) => {
+      state.isAuth = false;
+    },
     setAuth: (state, { payload }) => {
       state.isAuth = true;
       state.name = payload.displayName;
       state.creationTime = payload.metadata.creationTime;
       state.email = payload.email;
       state.uid = payload.uid;
-    },
-
-    unsetAuth: (state) => {
-      state.isAuth = false;
-      state.name = initialState.name;
-      state.email = initialState.email;
-      state.uid = initialState.uid;
     },
   },
   extraReducers(builder) {
@@ -113,5 +109,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { updateUserName, setAuth, unsetAuth } = userSlice.actions;
+export const { updateUserName, setAuth, logOut } = userSlice.actions;
 export default userSlice.reducer;

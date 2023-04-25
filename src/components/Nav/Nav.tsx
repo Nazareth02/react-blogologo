@@ -2,7 +2,16 @@ import { FavoritesActiveIcon, SearchIcon, SingInIcon, SingUpIcon } from "assets"
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "routes";
-import { FavoritesSpan, HomeSpan, SearchSpan, SignUserInfo, StyledLink, StyledNav } from "./styles";
+import {
+  FavoritesSpan,
+  HomeSpan,
+  NotSignedUserInfo,
+  SearchSpan,
+  SignUserInfo,
+  StyledLink,
+  StyledNav,
+} from "./styles";
+import { getUser, useAppSelector } from "store";
 
 interface NavProps {
   isOpen: boolean;
@@ -17,7 +26,7 @@ const menuVariants = {
 };
 
 export const Nav = memo(({ isOpen, isMobile, handleClose }: NavProps) => {
-  const isAuth = false;
+  const { isAuth, name } = useAppSelector(getUser);
 
   const currentVariant = isMobile ? (isOpen ? "open" : "closed") : "idle";
 
@@ -38,12 +47,12 @@ export const Nav = memo(({ isOpen, isMobile, handleClose }: NavProps) => {
       {isAuth ? (
         <StyledLink to={ROUTES.ACCOUNT} onClick={handleClose}>
           <SingUpIcon />
-          <SignUserInfo>Username</SignUserInfo>
+          <SignUserInfo>{name?.charAt(0).toUpperCase()}</SignUserInfo>
         </StyledLink>
       ) : (
         <StyledLink to={ROUTES.SIGN_IN} onClick={handleClose}>
           <SingInIcon />
-          <SignUserInfo>Sign in</SignUserInfo>
+          <NotSignedUserInfo>Sign in</NotSignedUserInfo>
         </StyledLink>
       )}
       {/* {isMobile && <ThemeToggleBtn handleClick activeTheme />} */}
