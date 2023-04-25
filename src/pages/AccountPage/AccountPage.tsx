@@ -2,6 +2,7 @@ import { memo } from "react";
 import { getUser, useAppSelector } from "store";
 import {
   BackHomeLink,
+  BoldInfo,
   CreationInfo,
   EmailInfo,
   FavoritesLink,
@@ -30,7 +31,7 @@ export const AccountPage = memo(() => {
     navigate(ROUTES.HOME);
   };
 
-  const { isAuth, email, creationTime, name } = useAppSelector(getUser);
+  const { isAuth, email, creationTime } = useAppSelector(getUser);
 
   return (
     <StyledAccountPage
@@ -57,9 +58,15 @@ export const AccountPage = memo(() => {
             Hello, {user?.displayName?.charAt(0).toUpperCase()}
             {user?.displayName?.slice(1)}!
           </NameInfo>
-          <EmailInfo>Your email: {email}</EmailInfo>
+          <EmailInfo>
+            Your email: <BoldInfo>{email}</BoldInfo>
+          </EmailInfo>
           <CreationInfo>
-            Account created: {dateFormat(creationTime ? "mmmm dS, dddd, yyyy, h:MM:ss TT" : "No info")}
+            Account created:
+            <BoldInfo>
+              {" "}
+              {dateFormat(creationTime ? "mmmm dS, dddd, yyyy, h:MM:ss TT" : "No info")}
+            </BoldInfo>
           </CreationInfo>
           <FavoritesLink to={ROUTES.HOME + ROUTES.FAVORITES}>Go to favorites</FavoritesLink>
         </UserInfoGroup>

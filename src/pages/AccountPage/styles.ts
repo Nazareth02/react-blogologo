@@ -113,10 +113,11 @@ const EmailInfo = styled.span`
   font-size: 16px;
   line-height: 24px;
 
-  background: ${Color.PRIMARY};
+  background: ${Color.NAV};
+
   border-radius: 4px;
 
-  color: ${Color.WHITE};
+  color: ${Color.FOOTER_TEXT};
 
   ${Media.PRE_MOBILE} {
     font-size: 14px;
@@ -136,10 +137,11 @@ const CreationInfo = styled.span`
   font-size: 16px;
   line-height: 24px;
 
-  background: ${Color.PRIMARY};
+  background: ${Color.NAV};
+
   border-radius: 4px;
 
-  color: ${Color.WHITE};
+  color: ${Color.FOOTER_TEXT};
 
   ${Media.PRE_MOBILE} {
     font-size: 14px;
@@ -196,8 +198,12 @@ const NavBtnGroup = styled.div`
 const NotSignedInfo = styled.h2`
   text-align: center;
 `;
+const BoldInfo = styled.span`
+  color: ${Color.FONT};
+`;
 
 export {
+  BoldInfo,
   StyledAccountPage,
   UserInfoGroup,
   FavoritesLink,
