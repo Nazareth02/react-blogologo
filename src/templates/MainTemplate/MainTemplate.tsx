@@ -2,8 +2,8 @@ import { Outlet } from "react-router-dom";
 import { Footer, Header } from "components";
 import { StyledMainTemplate, MainTemplateWrapper, OutletWrap } from "./styles";
 import { memo, useCallback, useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
 import { logOut, setAuth, useAppDispatch } from "store";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase";
 
 export const MainTemplate = memo(() => {

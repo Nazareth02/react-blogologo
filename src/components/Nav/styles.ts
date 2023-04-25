@@ -29,9 +29,8 @@ const StyledNav = styled(motion.nav)`
 `;
 const SignUserInfo = styled.span`
   position: absolute;
-  top: 8px;
-  left: 28px;
-  /* margin-left: 10px; */
+  top: 10%;
+  left: 45%;
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;

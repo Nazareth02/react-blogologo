@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { getUser, logOut, useAppDispatch, useAppSelector } from "store";
+import { getUser, useAppSelector } from "store";
 import {
   BackHomeLink,
   CreationInfo,
@@ -16,17 +16,21 @@ import { ROUTES } from "routes";
 import dateFormat from "dateformat";
 import { LogOutIcon } from "assets";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 export const AccountPage = memo(() => {
-  const { isAuth, email, creationTime, name } = useAppSelector(getUser);
-
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const handleLogOut = () => {
-    dispatch(logOut());
+  const [user] = useAuthState(auth);
+
+  // Method to sign out the current user
+  const handleSignOut = async () => {
+    await auth.signOut();
     navigate(ROUTES.HOME);
   };
+
+  const { isAuth, email, creationTime, name } = useAppSelector(getUser);
 
   return (
     <StyledAccountPage
@@ -41,7 +45,7 @@ export const AccountPage = memo(() => {
       <NavBtnGroup>
         <BackHomeLink to={ROUTES.HOME}>Back home</BackHomeLink>
         {isAuth && (
-          <LogOutBtn onClick={handleLogOut}>
+          <LogOutBtn onClick={handleSignOut}>
             Log out <LogOutIcon />
           </LogOutBtn>
         )}
@@ -50,8 +54,8 @@ export const AccountPage = memo(() => {
       {isAuth ? (
         <UserInfoGroup>
           <NameInfo>
-            Hello, {name?.charAt(0).toUpperCase()}
-            {name?.slice(1)}!
+            Hello, {user?.displayName?.charAt(0).toUpperCase()}
+            {user?.displayName?.slice(1)}!
           </NameInfo>
           <EmailInfo>Your email: {email}</EmailInfo>
           <CreationInfo>
