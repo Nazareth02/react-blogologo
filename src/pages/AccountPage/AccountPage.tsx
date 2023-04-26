@@ -62,7 +62,7 @@ export const AccountPage = memo(() => {
             Your email: <BoldInfo>{email}</BoldInfo>
           </EmailInfo>
           <CreationInfo>
-            Account created:
+            Last sing-in time :
             <BoldInfo>
               {" "}
               {dateFormat(creationTime ? "mmmm dS, dddd, yyyy, h:MM:ss TT" : "No info")}

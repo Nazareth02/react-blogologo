@@ -33,7 +33,7 @@ export const fetchSignUpUser = createAsyncThunk<
 
     return {
       email: user.email,
-      creationTime: user.metadata.creationTime ?? null,
+      creationTime: user.metadata.creationTime as string,
       name: user.displayName,
       uid: null,
     };
