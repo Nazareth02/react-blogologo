@@ -1,9 +1,8 @@
-import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { auth } from "../../../firebase";
 import {
   User,
   createUserWithEmailAndPassword,
-  getAuth,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   updateProfile,
@@ -69,7 +68,7 @@ export const fetchResetUser = createAsyncThunk<
   { rejectValue: FirebaseErrorMessage }
 >("user/fetchResetUser", async ({ email }, { rejectWithValue }) => {
   try {
-    sendPasswordResetEmail(auth, email);
+    await sendPasswordResetEmail(auth, email);
   } catch (error) {
     const firebaseError = error as FirebaseError;
     return rejectWithValue(getFirebaseErrorMessage(firebaseError.code));
@@ -90,9 +89,6 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    updateUserName: (state, action: PayloadAction<string>) => {
-      if (action.payload) state.email = action.payload;
-    },
     logOut: (state) => {
       state.isAuth = false;
     },
@@ -155,5 +151,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { updateUserName, setAuth, logOut, resetError } = userSlice.actions;
+export const { setAuth, logOut, resetError } = userSlice.actions;
 export default userSlice.reducer;

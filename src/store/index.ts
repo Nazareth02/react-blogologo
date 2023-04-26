@@ -7,7 +7,6 @@ import {
   logOut,
   resetError,
   setAuth,
-  updateUserName,
 } from "./features/userSlice/userSlice";
 import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import { getBlogById } from "./selectors/blogItemSelector";
@@ -28,7 +27,6 @@ export {
   fetchSignUpUser,
   getUser,
   fetchSignInUser,
-  updateUserName,
   setAuth,
   logOut,
   fetchResetUser,

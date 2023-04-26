@@ -15,7 +15,7 @@ import { fetchSignUpUser, getUser, resetError, useAppDispatch, useAppSelector } 
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ROUTES } from "routes";
 import { AuthFormValues } from "types";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { memo, useEffect } from "react";
 import { validateEmail, validateName, validatePassword } from "utils";
 
