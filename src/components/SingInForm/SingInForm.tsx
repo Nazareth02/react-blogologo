@@ -1,10 +1,10 @@
 import { ErrorMessage, InputErrorText } from "components";
 import { Loader } from "components";
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "routes";
-import { useAppDispatch, useAppSelector, getUser, fetchSignInUser } from "store";
+import { useAppDispatch, useAppSelector, getUser, fetchSignInUser, resetError } from "store";
 import { SingInFormValues } from "types";
 import {
   AccountExistenceSpan,
@@ -25,6 +25,10 @@ export const SignInForm = memo(() => {
   const dispatch = useAppDispatch();
 
   const { isLoading, errorMessage } = useAppSelector(getUser);
+
+  useEffect(() => {
+    if (errorMessage) dispatch(resetError());
+  }, [dispatch]);
 
   const {
     register,

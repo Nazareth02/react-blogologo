@@ -64,12 +64,11 @@ export const fetchSignInUser = createAsyncThunk<
 });
 
 export const fetchResetUser = createAsyncThunk<
-  void,
+  undefined,
   ResetFormValues,
   { rejectValue: FirebaseErrorMessage }
 >("user/fetchResetUser", async ({ email }, { rejectWithValue }) => {
   try {
-    const auth = getAuth();
     sendPasswordResetEmail(auth, email);
   } catch (error) {
     const firebaseError = error as FirebaseError;
@@ -103,6 +102,9 @@ const userSlice = createSlice({
       state.creationTime = payload.metadata.creationTime;
       state.email = payload.email;
       state.uid = payload.uid;
+    },
+    resetError: (state) => {
+      state.errorMessage = null;
     },
   },
   extraReducers(builder) {
@@ -153,5 +155,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { updateUserName, setAuth, logOut } = userSlice.actions;
+export const { updateUserName, setAuth, logOut, resetError } = userSlice.actions;
 export default userSlice.reducer;

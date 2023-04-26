@@ -5,6 +5,7 @@ import {
   fetchSignInUser,
   fetchSignUpUser,
   logOut,
+  resetError,
   setAuth,
   updateUserName,
 } from "./features/userSlice/userSlice";
@@ -31,4 +32,5 @@ export {
   setAuth,
   logOut,
   fetchResetUser,
+  resetError,
 };

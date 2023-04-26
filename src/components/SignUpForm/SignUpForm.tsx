@@ -11,12 +11,12 @@ import {
   SignPageLink,
   NameLabel,
 } from "./styles";
-import { fetchSignUpUser, getUser, useAppDispatch, useAppSelector } from "store";
+import { fetchSignUpUser, getUser, resetError, useAppDispatch, useAppSelector } from "store";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ROUTES } from "routes";
 import { AuthFormValues } from "types";
-import { useNavigate } from "react-router-dom";
-import { memo } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { memo, useEffect } from "react";
 import { validateEmail, validateName, validatePassword } from "utils";
 
 export const SignUpForm = memo(() => {
@@ -25,6 +25,10 @@ export const SignUpForm = memo(() => {
   const dispatch = useAppDispatch();
 
   const { isLoading, errorMessage } = useAppSelector(getUser);
+
+  useEffect(() => {
+    if (errorMessage) dispatch(resetError());
+  }, [dispatch]);
 
   const {
     register,

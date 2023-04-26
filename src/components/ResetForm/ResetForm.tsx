@@ -1,14 +1,13 @@
-import { memo } from "react";
-import { ResetEmail, ResetInput, ResetSubmitButton, StyledResetForm } from "./styles";
-import { InputErrorText, Loader } from "components";
-import { ErrorMessage } from "components";
-import { fetchResetUser, getUser, useAppDispatch, useAppSelector } from "store";
-import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
-
-import { ROUTES } from "routes";
+import { ErrorMessage } from "components";
+import { memo, useEffect, useState } from "react";
+import { ResetEmail, ResetInput, ResetSubmitButton, StyledResetForm } from "./styles";
 import { ResetFormValues } from "types";
 import { validateEmail } from "utils";
+import { InputErrorText, Loader } from "components";
+import { fetchResetUser, getUser, resetError, useAppDispatch, useAppSelector } from "store";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "routes";
 
 export const ResetForm = memo(() => {
   const navigate = useNavigate();
@@ -24,9 +23,14 @@ export const ResetForm = memo(() => {
     formState: { errors },
   } = useForm<ResetFormValues>();
 
+  useEffect(() => {
+    if (errorMessage) dispatch(resetError());
+  }, [dispatch]);
+
   const onSubmit: SubmitHandler<ResetFormValues> = async (authFormValues) => {
     await dispatch(fetchResetUser(authFormValues)).unwrap();
     // await toggleModal()
+
     await reset();
   };
 
