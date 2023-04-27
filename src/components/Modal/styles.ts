@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import { Color } from "ui";
+import { Color, Media } from "ui";
 
 const ModalWrapper = styled(motion.div)`
   width: 100%;
@@ -14,17 +14,21 @@ const ModalWrapper = styled(motion.div)`
 `;
 
 const StyledModal = styled.div`
-  width: 600px;
-  height: 400px;
+  max-width: 600px;
+  max-height: 400px;
   display: block;
-  margin: 50% 0 0 -300px;
+  margin: -200px 0 0 -300px;
   position: relative;
   top: 50%;
   left: 50%;
   background: ${Color.WHITE};
-  margin-top: -200px;
   border-radius: 15px;
   opacity: 1;
+  ${Media.TABLET} {
+    max-width: 300px;
+    max-height: 200px;
+    margin: -150px 0 0 -150px;
+  }
 `;
 
 const Head = styled.div`
@@ -70,6 +74,9 @@ const ModalContent = styled.div`
   place-items: center;
   grid-gap: 50px;
   padding: 5%;
+  ${Media.TABLET} {
+    grid-gap: 10px;
+  }
 `;
 
 const ContentTitle = styled.span`
@@ -82,6 +89,14 @@ const ContentTitle = styled.span`
   border-bottom: 2px solid ${Color.NAV};
 
   color: ${Color.SECONDARY};
+
+  ${Media.TABLET} {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+  }
 `;
 const ContentText = styled.span`
   font-family: "Inter";
@@ -89,8 +104,15 @@ const ContentText = styled.span`
   font-weight: 500;
   font-size: 24px;
   line-height: 36px;
-
   color: ${Color.SECONDARY};
+
+  ${Media.TABLET} {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+  }
 `;
 
 const OkModalBtn = styled.button`
@@ -113,6 +135,17 @@ const OkModalBtn = styled.button`
   }
   &:active {
     transform: scale(0.98);
+  }
+
+  ${Media.TABLET} {
+    margin-top: -10px;
+    padding: 4px 10px;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
   }
 `;
 
