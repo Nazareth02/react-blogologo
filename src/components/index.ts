@@ -18,6 +18,8 @@ import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { SignInForm } from "./SingInForm/SingInForm";
 import { ResetForm } from "./ResetForm/ResetForm";
 import { InputErrorText } from "./InputErrorText/InputErrorText";
+import { Portal, PortalTarget } from "./Portal/Portal";
+import { Modal } from "./Modal/Modal";
 
 export {
   Header,
@@ -40,4 +42,7 @@ export {
   SignInForm,
   ResetForm,
   InputErrorText,
+  Portal,
+  PortalTarget,
+  Modal,
 };

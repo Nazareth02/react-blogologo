@@ -1,14 +1,18 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { ErrorMessage } from "components";
-import { memo, useEffect } from "react";
+import { ErrorMessage, Modal } from "components";
+import { memo, useEffect, useState } from "react";
 import { ResetEmail, ResetInput, ResetSubmitButton, StyledResetForm } from "./styles";
 import { ResetFormValues } from "types";
 import { validateEmail } from "utils";
 import { InputErrorText, Loader } from "components";
 import { fetchResetUser, getUser, resetError, useAppDispatch, useAppSelector } from "store";
 import { ROUTES } from "routes";
+import { useToggle } from "hooks";
 
 export const ResetForm = memo(() => {
+  // const [isOpen, setOpen] = useState(true);
+  const [isOpen, setOpen] = useToggle();
+
   const dispatch = useAppDispatch();
 
   const { isLoading, errorMessage } = useAppSelector(getUser);
@@ -16,6 +20,10 @@ export const ResetForm = memo(() => {
   useEffect(() => {
     if (errorMessage) dispatch(resetError());
   }, [dispatch]);
+
+  const handleToggleModal = () => {
+    setOpen();
+  };
 
   const {
     register,
@@ -26,8 +34,7 @@ export const ResetForm = memo(() => {
 
   const onSubmit: SubmitHandler<ResetFormValues> = async (authFormValues) => {
     await dispatch(fetchResetUser(authFormValues)).unwrap();
-    // await toggleModal()
-    console.log(errorMessage);
+    await setOpen();
     await reset();
   };
 
@@ -51,6 +58,7 @@ export const ResetForm = memo(() => {
         {" "}
         {isLoading ? "Loading..." : "Reset password"}
       </ResetSubmitButton>
+      {isOpen && <Modal handleToggle={handleToggleModal} />}
     </StyledResetForm>
   );
 });

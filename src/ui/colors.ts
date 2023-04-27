@@ -8,6 +8,7 @@ export enum Color {
   ERROR = "#FD3419",
   WHITE = "#FFFFFF",
   GRAY = "#F3F3F3",
+  MODAL = "rgba(49, 48, 55, 0.8)",
 
   BACKGROUND = "var(--theme-bg)",
   HEADER = "var(--theme-header)",
