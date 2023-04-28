@@ -13,6 +13,8 @@ import {
   StyledNav,
 } from "./styles";
 import { getUser, useAppSelector } from "store";
+import { auth } from "../../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 interface NavProps {
   isOpen: boolean;
@@ -27,7 +29,9 @@ const menuVariants = {
 };
 
 export const Nav = memo(({ isOpen, isMobile, handleClose }: NavProps) => {
-  const { isAuth, name } = useAppSelector(getUser);
+  const [user] = useAuthState(auth);
+
+  const { isAuth } = useAppSelector(getUser);
 
   const currentVariant = isMobile ? (isOpen ? "open" : "closed") : "idle";
 
@@ -53,8 +57,8 @@ export const Nav = memo(({ isOpen, isMobile, handleClose }: NavProps) => {
                 <UserIcon />
               </IconWrapper>
               <AccountSpan>
-                {name?.charAt(0).toUpperCase()}
-                {name?.slice(1)}
+                {user?.displayName?.charAt(0).toUpperCase()}
+                {user?.displayName?.slice(1)}
               </AccountSpan>
             </>
           ) : (
@@ -63,8 +67,8 @@ export const Nav = memo(({ isOpen, isMobile, handleClose }: NavProps) => {
                 <UserIcon />
               </IconWrapper>
               <AccountSpan>
-                {name?.charAt(0).toUpperCase()}
-                {name?.slice(1)}
+                {user?.displayName?.charAt(0).toUpperCase()}
+                {user?.displayName?.slice(1)}
               </AccountSpan>
             </>
           )}
