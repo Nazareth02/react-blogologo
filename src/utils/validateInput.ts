@@ -9,7 +9,7 @@ const validateEmail = () => {
 const validateName = () => {
   return {
     required: "Name is required",
-    maxLength: { value: 20, message: "Too many symbols" },
+    maxLength: { value: 10, message: "*max characters: 10" },
     pattern: {
       value: /^[A-Za-z]+$/,
       message: "Only letters required",

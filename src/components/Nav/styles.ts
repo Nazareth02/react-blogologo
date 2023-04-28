@@ -27,16 +27,11 @@ const StyledNav = styled(motion.nav)`
     transform: translateX(-100%);
   }
 `;
-const SignUserInfo = styled.span`
-  position: absolute;
-  top: 10%;
-  left: 45%;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 46px;
-  color: ${Color.WHITE};
+const IconWrapper = styled.div`
+  width: 48px;
+  height: 48px;
+  padding: 5px;
+  background: ${Color.PRIMARY};
 `;
 const NotSignedUserInfo = styled.span`
   margin-left: 10px;
@@ -98,7 +93,7 @@ const SearchSpan = styled.span`
 
 export {
   StyledNav,
-  SignUserInfo,
+  IconWrapper,
   StyledLink,
   FavoritesSpan,
   HomeSpan,

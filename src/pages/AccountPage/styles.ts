@@ -89,8 +89,8 @@ const NameInfo = styled.h2`
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 56px;
-  line-height: 80px;
+  font-size: 32px;
+  line-height: 44px;
 
   color: ${Color.FONT};
 

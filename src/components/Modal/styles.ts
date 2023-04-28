@@ -38,6 +38,9 @@ const Head = styled.div`
   border-radius: 15px 15px 0 0;
   overflow: hidden;
   background: ${Color.PRIMARY};
+  ${Media.TABLET} {
+    padding: 18px 3%;
+  }
 `;
 
 const CloseModalBtn = styled.button`
@@ -52,6 +55,10 @@ const CloseModalBtn = styled.button`
     height: 3px;
     display: block;
     background: ${Color.WHITE};
+    ${Media.TABLET} {
+      width: 20px;
+      height: 3px;
+    }
   }
   &::before {
     margin-top: -18px;

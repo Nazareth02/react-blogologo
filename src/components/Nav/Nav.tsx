@@ -1,4 +1,4 @@
-import { FavoritesActiveIcon, SearchIcon, SingInIcon, SingUpIcon } from "assets";
+import { FavoritesActiveIcon, SearchIcon, SingInIcon, UserIcon } from "assets";
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "routes";
@@ -6,9 +6,9 @@ import {
   AccountSpan,
   FavoritesSpan,
   HomeSpan,
+  IconWrapper,
   NotSignedUserInfo,
   SearchSpan,
-  SignUserInfo,
   StyledLink,
   StyledNav,
 } from "./styles";
@@ -49,13 +49,23 @@ export const Nav = memo(({ isOpen, isMobile, handleClose }: NavProps) => {
         <StyledLink to={ROUTES.ACCOUNT} onClick={handleClose}>
           {isMobile ? (
             <>
-              <SingInIcon />
-              <AccountSpan>Account</AccountSpan>
+              <IconWrapper>
+                <UserIcon />
+              </IconWrapper>
+              <AccountSpan>
+                {name?.charAt(0).toUpperCase()}
+                {name?.slice(1)}
+              </AccountSpan>
             </>
           ) : (
             <>
-              <SingUpIcon />
-              <SignUserInfo>{name?.charAt(0).toUpperCase()}</SignUserInfo>
+              <IconWrapper>
+                <UserIcon />
+              </IconWrapper>
+              <AccountSpan>
+                {name?.charAt(0).toUpperCase()}
+                {name?.slice(1)}
+              </AccountSpan>
             </>
           )}
         </StyledLink>

@@ -3,7 +3,7 @@ import { ReactComponent as FavoritesActiveIcon } from "./icons/favorite.svg";
 import { ReactComponent as AddFavoritesIcon } from "./icons/add-favorite.svg";
 import { ReactComponent as SearchIcon } from "./icons/search-icon.svg";
 import { ReactComponent as SingInIcon } from "./icons/sign-in.svg";
-import { ReactComponent as SingUpIcon } from "./icons/sign-up.svg";
+import { ReactComponent as UserIcon } from "./icons/user-icon.svg";
 import { ReactComponent as BurgerIcon } from "./icons/burger-icon.svg";
 import { ReactComponent as CloseBurgerIcon } from "./icons/close-icon.svg";
 import imageNotFound from "./img/imageNotFound.jpg";
@@ -14,7 +14,6 @@ export {
   LogoIcon,
   FavoritesActiveIcon,
   SingInIcon,
-  SingUpIcon,
   SearchIcon,
   BurgerIcon,
   CloseBurgerIcon,
@@ -22,4 +21,5 @@ export {
   WebSiteIcon,
   AddFavoritesIcon,
   LogOutIcon,
+  UserIcon,
 };
