@@ -10,6 +10,8 @@ interface BlogsState {
   error: string | null;
 }
 
+const BASE_URL = "https://api.spaceflightnewsapi.net/v3";
+
 export const fetchArticles = createAsyncThunk<
   BlogItem[],
   { value: string; text: string; limit: any; start: number },
@@ -17,7 +19,7 @@ export const fetchArticles = createAsyncThunk<
 >("articles/fetchArticles", async (params, { rejectWithValue }) => {
   try {
     const { data } = await axios.get(
-      `https://api.spaceflightnewsapi.net/v3/articles?_limit=${params.limit}&_sort=${params.value}&_start=${params.start}`,
+      `${BASE_URL}/articles?&_limit=${params.limit}&_sort=${params.value}&_start=${params.start}&title_contains=${params.text}`,
     );
 
     return data;
@@ -35,7 +37,7 @@ export const fetchNews = createAsyncThunk<
 >("news/fetchNews", async (params, { rejectWithValue }) => {
   try {
     const { data } = await axios.get(
-      `https://api.spaceflightnewsapi.net/v3/blogs?_limit=${params.limit}&_sort=${params.value}&_start=${params.start}`,
+      `${BASE_URL}/blogs?_limit=${params.limit}&_sort=${params.value}&_start=${params.start}`,
     );
 
     return data;
