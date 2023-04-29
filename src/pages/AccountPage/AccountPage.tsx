@@ -56,16 +56,16 @@ export const AccountPage = memo(() => {
         <UserInfoGroup>
           <NameInfo>
             Hello, {user?.displayName?.charAt(0).toUpperCase()}
-            {user?.displayName?.slice(1)}!
+            {user?.displayName?.slice(1)}! 👋
           </NameInfo>
           <EmailInfo>
             Your email: <BoldInfo>{email}</BoldInfo>
           </EmailInfo>
           <CreationInfo>
-            Last sing-in time :
+            Last sing-in time:
             <BoldInfo>
               {" "}
-              {dateFormat(creationTime ? "mmmm dS, dddd, yyyy, h:MM:ss TT" : "No info")}
+              {dateFormat(user?.metadata.lastSignInTime ? "mmmm dS, dddd, yyyy, h:MM:ss TT" : "No info")}
             </BoldInfo>
           </CreationInfo>
           <FavoritesLink to={ROUTES.HOME + ROUTES.FAVORITES}>Go to favorites</FavoritesLink>

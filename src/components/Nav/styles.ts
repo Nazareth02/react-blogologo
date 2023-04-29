@@ -64,7 +64,7 @@ const FavoritesSpan = styled.span`
 `;
 
 const AccountSpan = styled.span`
-  margin-left: 5px;
+  margin-left: 10px;
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
