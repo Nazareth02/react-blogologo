@@ -37,7 +37,7 @@ export const fetchNews = createAsyncThunk<
 >("news/fetchNews", async (params, { rejectWithValue }) => {
   try {
     const { data } = await axios.get(
-      `${BASE_URL}/blogs?_limit=${params.limit}&_sort=${params.value}&_start=${params.start}`,
+      `${BASE_URL}/blogs?_limit=${params.limit}&_sort=${params.value}&_start=${params.start}&title_contains=${params.text}`,
     );
 
     return data;

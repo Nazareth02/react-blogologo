@@ -15,6 +15,7 @@ import {
 import { getUser, useAppSelector } from "store";
 import { auth } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { Search } from "components";
 
 interface NavProps {
   isOpen: boolean;
@@ -46,9 +47,9 @@ export const Nav = memo(({ isOpen, isMobile, handleClose }: NavProps) => {
       <Link to={ROUTES.FAVORITES} onClick={handleClose}>
         {isMobile ? <FavoritesSpan>Favorites</FavoritesSpan> : <FavoritesActiveIcon />}
       </Link>
-      <Link to={ROUTES.SEARCH} onClick={handleClose}>
-        {isMobile ? <SearchSpan>Search</SearchSpan> : <SearchIcon />}
-      </Link>
+
+      <Search />
+
       {isAuth ? (
         <StyledLink to={ROUTES.ACCOUNT} onClick={handleClose}>
           {isMobile ? (

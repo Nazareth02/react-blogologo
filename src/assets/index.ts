@@ -2,6 +2,7 @@ import { ReactComponent as LogoIcon } from "./img/logo.svg";
 import { ReactComponent as FavoritesActiveIcon } from "./icons/favorite.svg";
 import { ReactComponent as AddFavoritesIcon } from "./icons/add-favorite.svg";
 import { ReactComponent as SearchIcon } from "./icons/search-icon.svg";
+import { ReactComponent as SearchBtn } from "./icons/search-btn.svg";
 import { ReactComponent as SingInIcon } from "./icons/sign-in.svg";
 import { ReactComponent as UserIcon } from "./icons/user-icon.svg";
 import { ReactComponent as BurgerIcon } from "./icons/burger-icon.svg";
@@ -22,4 +23,5 @@ export {
   AddFavoritesIcon,
   LogOutIcon,
   UserIcon,
+  SearchBtn,
 };

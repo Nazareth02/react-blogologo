@@ -1,7 +1,6 @@
 import { LogoIcon } from "assets";
-import { Link } from "react-router-dom";
 import { Nav, BurgerMenuNav } from "components";
-import { StyledHeader } from "./styles";
+import { StyledHeader, StyledHomeLink } from "./styles";
 import { ROUTES } from "routes";
 import { memo } from "react";
 import { useToggle, useWindowSize } from "hooks";
@@ -19,9 +18,9 @@ export const Header = memo(() => {
 
   return (
     <StyledHeader $isMenuOpen={isMenuOpen} $isMobile={isMobile}>
-      <Link to={ROUTES.HOME}>
+      <StyledHomeLink to={ROUTES.HOME}>
         <LogoIcon />
-      </Link>
+      </StyledHomeLink>
       <Nav isOpen={isMenuOpen} isMobile={isMobile} handleClose={toggleMenu} />
       {isMobile && <BurgerMenuNav toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />}
     </StyledHeader>

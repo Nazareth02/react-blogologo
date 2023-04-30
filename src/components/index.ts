@@ -1,3 +1,4 @@
+import { Search } from "./Search/Search";
 import { RequireAuth } from "../components/RequireAuth/RequireAuth";
 import { Footer } from "../components/Footer/Footer";
 import { Nav } from "../components/Nav/Nav";
@@ -45,4 +46,5 @@ export {
   Portal,
   PortalTarget,
   Modal,
+  Search,
 };
