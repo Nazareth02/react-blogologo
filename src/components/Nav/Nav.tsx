@@ -1,4 +1,4 @@
-import { FavoritesActiveIcon, SearchIcon, SingInIcon, UserIcon } from "assets";
+import { FavoritesActiveIcon, SingInIcon, UserIcon } from "assets";
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "routes";
@@ -8,7 +8,6 @@ import {
   HomeSpan,
   IconWrapper,
   NotSignedUserInfo,
-  SearchSpan,
   StyledLink,
   StyledNav,
 } from "./styles";
@@ -48,7 +47,7 @@ export const Nav = memo(({ isOpen, isMobile, handleClose }: NavProps) => {
         {isMobile ? <FavoritesSpan>Favorites</FavoritesSpan> : <FavoritesActiveIcon />}
       </Link>
 
-      <Search />
+      <Search onClick={handleClose} />
 
       {isAuth ? (
         <StyledLink to={ROUTES.ACCOUNT} onClick={handleClose}>

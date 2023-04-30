@@ -1,7 +1,6 @@
 import { BlogListItem } from "components";
 import { memo } from "react";
 import { StyledBlogList } from "./styles";
-
 import { BlogItem } from "types";
 
 interface BlogListProps {

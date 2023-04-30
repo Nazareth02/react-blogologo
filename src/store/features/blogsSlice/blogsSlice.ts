@@ -62,7 +62,7 @@ const blogsSlice = createSlice({
   initialState,
   reducers: {
     setSearchValue: (state, { payload }) => {
-      state.searchValue = payload.searchValue;
+      state.searchValue = payload;
     },
   },
   extraReducers(builder) {

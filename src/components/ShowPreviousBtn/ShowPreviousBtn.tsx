@@ -9,7 +9,7 @@ interface BtnProps {
 export const ShowPreviousBtn = memo(({ handleClick, startPage }: BtnProps) => {
   return (
     <StyledShowPreviousBtn
-      {...(startPage < 12 ? { disabled: true } : { disabled: false })}
+      {...(startPage < 6 ? { disabled: true } : { disabled: false })}
       onClick={handleClick}
     >
       Show previous
