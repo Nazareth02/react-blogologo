@@ -60,11 +60,11 @@ export const SearchPage = memo(() => {
       ) : (
         <>
           <SearchTabInfo>
-            {articles.length ? "Articles:" : "Sorry, we haven't found anything for Articles 😔"}
+            {articles.length ? "Articles:" : "Sorry, we haven't found anything for Articles 😕"}
           </SearchTabInfo>
           <BlogList posts={articles} />
           <SearchTabInfo>
-            {articles.length ? "News:" : "Sorry, we haven't found anything for News 😔"}
+            {articles.length ? "News:" : "Sorry, we haven't found anything for News 😕"}
           </SearchTabInfo>
 
           <BlogList posts={news} />
