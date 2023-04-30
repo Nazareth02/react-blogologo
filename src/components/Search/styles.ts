@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import { Color, Media } from "ui";
+import { Color } from "ui";
 
 const StyledSearchForm = styled.form``;
 
@@ -29,9 +29,6 @@ const SearchInput = styled(motion.input)`
 `;
 
 const SubmitSearchButton = styled.button`
-  /* position: absolute;
-  top: 15%;
-  left: 80%; */
   padding: 0 5px;
 
   background-color: ${Color.PRIMARY};

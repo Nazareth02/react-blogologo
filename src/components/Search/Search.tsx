@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 export const Search = memo(() => {
   const inputRef = useRef<HTMLDivElement>(null);
-  //   const [isActiveSearch, setActiveSearch] = useState(false);
   const [isToggledSearch, setToggleSearch] = useToggle();
   const { reset } = useForm();
   const navigate = useNavigate();
@@ -17,6 +16,7 @@ export const Search = memo(() => {
 
   const handleSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setToggleSearch();
     navigate(ROUTES.SEARCH);
     reset();
   };
@@ -28,7 +28,7 @@ export const Search = memo(() => {
 
   return isToggledSearch ? (
     <StyledSearchForm onSubmit={handleSearch}>
-      <SearchInputWrapper>
+      <SearchInputWrapper ref={inputRef}>
         <SearchInput
           initial={{ x: "+50%" }}
           animate={{ x: 0 }}
