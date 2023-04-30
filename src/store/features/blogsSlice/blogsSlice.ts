@@ -8,6 +8,7 @@ interface BlogsState {
   news: BlogItem[];
   isLoading: boolean;
   error: string | null;
+  searchValue: string | null;
 }
 
 const BASE_URL = "https://api.spaceflightnewsapi.net/v3";
@@ -53,12 +54,17 @@ const initialState: BlogsState = {
   error: null,
   articles: [],
   news: [],
+  searchValue: null,
 };
 
 const blogsSlice = createSlice({
   name: "blogs",
   initialState,
-  reducers: {},
+  reducers: {
+    setSearchValue: (state, { payload }) => {
+      state.searchValue = payload.searchValue;
+    },
+  },
   extraReducers(builder) {
     builder.addCase(fetchArticles.pending, (state) => {
       state.isLoading = true;
@@ -91,3 +97,4 @@ const blogsSlice = createSlice({
 });
 
 export default blogsSlice.reducer;
+export const { setSearchValue } = blogsSlice.actions;

@@ -21,7 +21,6 @@ import { BlogItem } from "types";
 
 interface BlogContentProps {
   blogListItem: BlogItem;
-  //   onClick: (BlogItem: BlogItem) => void;
 }
 
 export const BlogContent = memo(({ blogListItem }: BlogContentProps) => {
