@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/react-blogologo/static/js/main.892e1ffe.js",
+    "main.js": "/react-blogologo/static/js/main.6968c8de.js",
     "static/media/imageNotFound.jpg": "/react-blogologo/static/media/imageNotFound.5e97c2e38eb3bdc3d7df.jpg",
     "static/media/logo.svg": "/react-blogologo/static/media/logo.118fd55c59dbc45724df7244e68798bf.svg",
     "static/media/user-icon.svg": "/react-blogologo/static/media/user-icon.bd2655262c3d1cc12c47d351c492792b.svg",
@@ -14,9 +14,9 @@
     "static/media/search-icon.svg": "/react-blogologo/static/media/search-icon.44085867c54700470d00f9c287ed51cc.svg",
     "static/media/close-icon.svg": "/react-blogologo/static/media/close-icon.500462e8e4cfb1c1369e5a6562dd430e.svg",
     "static/media/burger-icon.svg": "/react-blogologo/static/media/burger-icon.2ace7e34c078e5fa19a21b90e7b995df.svg",
-    "main.892e1ffe.js.map": "/react-blogologo/static/js/main.892e1ffe.js.map"
+    "main.6968c8de.js.map": "/react-blogologo/static/js/main.6968c8de.js.map"
   },
   "entrypoints": [
-    "static/js/main.892e1ffe.js"
+    "static/js/main.6968c8de.js"
   ]
 }
