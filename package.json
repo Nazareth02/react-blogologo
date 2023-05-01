@@ -1,8 +1,8 @@
 {
   "name": "react-blogologo",
   "version": "0.1.0",
-  "private": true,
   "homepage": "https://nazareth02.github.io/react-blogologo/",
+  "private": true,
   "dependencies": {
     "@chakra-ui/switch": "^2.0.27",
     "@reduxjs/toolkit": "^1.9.3",

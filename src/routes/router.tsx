@@ -30,5 +30,5 @@ export const router = createBrowserRouter(
       </Route>
     </Route>,
   ),
-  // { basename: "/react-blogologo" },
+  { basename: "/react-blogologo" },
 );
