@@ -1,9 +1,8 @@
 import { memo, useCallback } from "react";
-import { useAppDispatch, setFavorite, removeFavorite, useAppSelector, getFavorites } from "store";
+import { useAppDispatch, removeFavorite, useAppSelector, getFavorites } from "store";
 import { BlogItem } from "types";
 import { FavoritesText, FavoritesTitle, StyledFavoritesList, StyledFavoritesPage } from "./styles";
-import { FavoritesActiveIcon } from "assets";
-import { BlogList, BlogListItem } from "components";
+import { BlogListItem } from "components";
 
 export const FavoritesPage = memo(() => {
   const dispatch = useAppDispatch();

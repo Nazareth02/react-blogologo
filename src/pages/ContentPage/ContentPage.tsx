@@ -1,9 +1,8 @@
 import { BlogContent, BlogList, ErrorMessage, Loader } from "components";
 import { memo, useCallback } from "react";
 import { RecommendationsCarousel, StyledBlogContentPage } from "./styles";
-import { useLocation, useNavigate } from "react-router-dom";
-
-import { getBlogById, removeFavorite, setFavorite, useAppDispatch, useAppSelector } from "store";
+import { useLocation } from "react-router-dom";
+import { getBlogById, setFavorite, useAppDispatch, useAppSelector } from "store";
 import { BlogItem } from "types";
 
 export const ContentPage = memo(() => {

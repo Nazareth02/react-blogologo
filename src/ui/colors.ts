@@ -9,6 +9,7 @@ export enum Color {
   WHITE = "#FFFFFF",
   GRAY = "#F3F3F3",
   MODAL = "rgba(49, 48, 55, 0.8)",
+  CARD_BG = "#8b00ff",
 
   BACKGROUND = "var(--theme-bg)",
   HEADER = "var(--theme-header)",

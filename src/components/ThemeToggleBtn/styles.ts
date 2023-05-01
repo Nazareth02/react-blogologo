@@ -27,12 +27,6 @@ const SwitchRound = styled.div<isDarkTheme>`
   background-color: ${Color.WHITE};
   border-radius: 50%;
   transition: left 0.5s;
-
-  &:disabled {
-    background-color: ${({ $isDarkTheme }) => {
-      return $isDarkTheme ? Color.PRIMARY_SECOND : Color.SIGN_TEXT;
-    }};
-  }
 `;
 
 export { Button, SwitchRound };

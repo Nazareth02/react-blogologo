@@ -31,7 +31,7 @@ export const AccountPage = memo(() => {
     navigate(ROUTES.HOME);
   };
 
-  const { isAuth, email, creationTime } = useAppSelector(getUser);
+  const { isAuth, email } = useAppSelector(getUser);
 
   return (
     <StyledAccountPage

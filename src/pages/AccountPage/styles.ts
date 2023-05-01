@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { HomeRouteLink } from "pages/SignUpPage/styles";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Color, Media } from "ui";

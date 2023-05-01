@@ -27,7 +27,7 @@ export const SignInForm = memo(() => {
   const { isLoading, errorMessage } = useAppSelector(getUser);
 
   useEffect(() => {
-    if (errorMessage) dispatch(resetError());
+    dispatch(resetError());
   }, [dispatch]);
 
   const {

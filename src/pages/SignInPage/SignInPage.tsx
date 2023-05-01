@@ -1,6 +1,5 @@
 import { ErrorMessage, SignInForm } from "components";
 import { memo } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { ROUTES } from "routes";
 import { BackToAccount, HomeRoute, PageLabel, StyledSignInPage } from "./styles";
 import { getUser, useAppSelector } from "store";
