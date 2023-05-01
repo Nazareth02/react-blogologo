@@ -9,8 +9,9 @@ const StyledBlogListItem = styled.li`
   width: 100%;
   height: 100%;
   border-radius: 16px;
-  background: linear-gradient(rgba(77, 10, 199, 0.6), rgba(145, 46, 242, 0.6) 108.59%);
-  background: #8b00ff;
+  background: ${Color.BACKGROUND};
+
+  /* background: #8b00ff; */
   mix-blend-mode: normal;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
     rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -38,6 +39,7 @@ const CardImageWrap = styled.div`
   width: 100%;
   height: 208px;
 `;
+const CardWrapper = styled.div``;
 
 const CardImage = styled.img`
   max-width: 352px;
@@ -134,4 +136,5 @@ export {
   CardTextGroup,
   CardImageWrap,
   FavoriteIconsWrap,
+  CardWrapper,
 };

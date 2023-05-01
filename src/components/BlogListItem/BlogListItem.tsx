@@ -5,6 +5,7 @@ import {
   CardImage,
   CardImageWrap,
   CardTextGroup,
+  CardWrapper,
   FavoriteIconsWrap,
   StyledBlogListItem,
 } from "./styles";
@@ -44,15 +45,17 @@ export const BlogListItem = memo(({ post, posts, handleClick }: BlogListItemProp
   };
 
   return (
-    <StyledBlogListItem onClick={handleBlogItem}>
-      <CardImageWrap>
-        <CardImage src={imageUrl} alt="Image not found" onError={setImageNotFound} />
-      </CardImageWrap>
+    <StyledBlogListItem>
+      <CardWrapper onClick={handleBlogItem}>
+        <CardImageWrap>
+          <CardImage src={imageUrl} alt="Image not found" onError={setImageNotFound} />
+        </CardImageWrap>
 
-      <CardTextGroup>
-        <CardDate>{dateFormat(publishedAt, "mmmm dd, yyyy")}</CardDate>
-        <CardDesc>{title.length > 70 ? title.slice(0, 70) + " ..." : title}</CardDesc>
-      </CardTextGroup>
+        <CardTextGroup>
+          <CardDate>{dateFormat(publishedAt, "mmmm dd, yyyy")}</CardDate>
+          <CardDesc>{title.length > 70 ? title.slice(0, 70) + " ..." : title}</CardDesc>
+        </CardTextGroup>
+      </CardWrapper>
       {isAuth ? (
         <FavoriteIconsWrap onClick={handleUpdateFavorite}>
           {isAuth && isFavorite ? <FavoritesActiveIcon /> : <AddFavoritesIcon />}
