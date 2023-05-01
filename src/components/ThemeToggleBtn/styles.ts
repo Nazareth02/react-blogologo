@@ -1,23 +1,38 @@
 import styled from "styled-components";
 import { Color } from "ui";
 
-const StyledToggler = styled.button`
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: ${Color.FOOTER_TEXT};
+type isDarkTheme = { $isDarkTheme: boolean };
+
+const Button = styled.button<isDarkTheme>`
+  position: relative;
+  height: 20px;
+  width: 32px;
+  align-self: center;
+  border-radius: 10px;
+  border: none;
+  background-color: ${({ $isDarkTheme }) => ($isDarkTheme ? Color.PRIMARY : Color.SECONDARY_LIGHT)};
+  transition: background-color 0.3s;
   cursor: pointer;
+  &:hover {
+    background-color: ${({ $isDarkTheme }) => ($isDarkTheme ? Color.PRIMARY : Color.SECONDARY_LIGHT)};
+  }
 `;
-const ThemeText = styled.span`
-  padding: 3px;
-  border: 1px solid ${Color.FOOTER_TEXT};
-  border-radius: 5px;
-  font-family: "Inter";
-  font-style: bold;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
+
+const SwitchRound = styled.div<isDarkTheme>`
+  position: absolute;
+  top: 2px;
+  left: ${({ $isDarkTheme }) => ($isDarkTheme ? "2px" : "14px")};
+  height: 16px;
+  width: 16px;
+  background-color: ${Color.WHITE};
+  border-radius: 50%;
+  transition: left 0.5s;
+
+  &:disabled {
+    background-color: ${({ $isDarkTheme }) => {
+      return $isDarkTheme ? Color.PRIMARY_SECOND : Color.SIGN_TEXT;
+    }};
+  }
 `;
-export { StyledToggler, ThemeText };
+
+export { Button, SwitchRound };
