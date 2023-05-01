@@ -29,6 +29,7 @@ const FavoritesText = styled.span`
   font-weight: 500;
   font-size: 18px;
   line-height: 28px;
+  color: ${Color.FONT};
 `;
 
 const StyledFavoritesList = styled.ul`
