@@ -3,12 +3,20 @@ import { memo, useCallback } from "react";
 import { RecommendationsCarousel, StyledBlogContentPage } from "./styles";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { getBlogById, useAppSelector } from "store";
+import { getBlogById, removeFavorite, setFavorite, useAppDispatch, useAppSelector } from "store";
+import { BlogItem } from "types";
 
 export const ContentPage = memo(() => {
   const location = useLocation();
-
   const { isLoading, error } = useAppSelector(getBlogById);
+  const dispatch = useAppDispatch();
+
+  const handleSetFavorite = useCallback(
+    (post: BlogItem) => {
+      dispatch(setFavorite(post));
+    },
+    [dispatch],
+  );
 
   return isLoading ? (
     <Loader />
@@ -22,7 +30,7 @@ export const ContentPage = memo(() => {
         damping: 15,
       }}
     >
-      <BlogContent blogListItem={location.state.post} />
+      <BlogContent blogListItem={location.state.post} handleClick={handleSetFavorite} />
       {error && <ErrorMessage message={error} />}
       <RecommendationsCarousel
         initial={{ x: "-100%" }}

@@ -1,5 +1,6 @@
 import { fetchArticlesById, fetchNewsById } from "./features/blogItemSlice/blogItemSlice";
 import { fetchArticles, fetchNews } from "./features/blogsSlice/blogsSlice";
+import { removeFavorite, setFavorite } from "./features/favoritesSlice/favoritesSlice";
 import {
   fetchResetUser,
   fetchSignInUser,
@@ -11,6 +12,7 @@ import {
 import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import { getBlogById } from "./selectors/blogItemSelector";
 import { getAllArticles } from "./selectors/blogsSelector";
+import { getFavorites } from "./selectors/favoritesSelector";
 import { getUser } from "./selectors/userSelector";
 import { store } from "./store";
 
@@ -31,4 +33,7 @@ export {
   logOut,
   fetchResetUser,
   resetError,
+  getFavorites,
+  setFavorite,
+  removeFavorite,
 };

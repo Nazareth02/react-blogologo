@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Color, Media } from "ui";
 
 const StyledBlogListItem = styled.li`
+  position: relative;
   display: grid;
   max-width: 352px;
   max-height: 388px;
@@ -115,4 +116,22 @@ const CardTextGroup = styled.div`
   }
 `;
 
-export { StyledBlogListItem, CardImage, CardDate, CardDesc, CardTextGroup, CardImageWrap };
+const FavoriteIconsWrap = styled.div`
+  position: absolute;
+  top: 43%;
+  right: 4%;
+  font-size: 1.5rem;
+  color: ${Color.WHITE};
+
+  cursor: pointer;
+`;
+
+export {
+  StyledBlogListItem,
+  CardImage,
+  CardDate,
+  CardDesc,
+  CardTextGroup,
+  CardImageWrap,
+  FavoriteIconsWrap,
+};

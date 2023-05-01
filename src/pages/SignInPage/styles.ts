@@ -12,4 +12,6 @@ const HomeRoute = styled(HomeRouteLink)``;
 
 const PageLabel = styled(PageName)``;
 
-export { StyledSignInPage, HomeRoute, PageLabel };
+const BackToAccount = styled(HomeRouteLink)``;
+
+export { StyledSignInPage, HomeRoute, PageLabel, BackToAccount };

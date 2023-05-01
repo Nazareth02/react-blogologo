@@ -8,7 +8,7 @@ import { useToggle, useWindowSize } from "hooks";
 export const Header = memo(() => {
   const [isMenuOpen, toggleMenu] = useToggle();
   const { width = 0 } = useWindowSize();
-  const isMobile = width < 609;
+  const isMobile = width < 619;
 
   //preventing vertical scroll while isMenuOpen
   isMenuOpen && isMobile

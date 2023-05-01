@@ -16,21 +16,29 @@ import {
 import { useNavigate } from "react-router-dom";
 import { AddFavoritesIcon, FavoritesActiveIcon, WebSiteIcon } from "assets";
 import { setImageNotFound } from "utils";
-
 import { BlogItem } from "types";
+import { getFavorites, getUser, useAppSelector } from "store";
 
 interface BlogContentProps {
   blogListItem: BlogItem;
+  handleClick: (blogListItem: BlogItem) => void;
 }
 
-export const BlogContent = memo(({ blogListItem }: BlogContentProps) => {
+export const BlogContent = memo(({ blogListItem, handleClick }: BlogContentProps) => {
   const { id, imageUrl, title, summary, url } = blogListItem;
+  const { favorites } = useAppSelector(getFavorites);
+  const { isAuth } = useAppSelector(getUser);
+  const isFavorite = favorites.map((favorite) => favorite.id).some((favorite) => favorite === id);
 
   const navigate = useNavigate();
 
   const handleHome = useCallback(() => {
     navigate(-1);
   }, [navigate]);
+
+  const handleSetFavorite = () => {
+    handleClick(blogListItem);
+  };
 
   return (
     <StyledBlogContent>
@@ -45,8 +53,8 @@ export const BlogContent = memo(({ blogListItem }: BlogContentProps) => {
       <PostSummaryWrapper>
         <Summary>{summary}</Summary>
         <IconsWrapper>
-          <FavoritesIconWrapper>
-            <AddFavoritesIcon />
+          <FavoritesIconWrapper onClick={handleSetFavorite}>
+            {isAuth && isFavorite ? <FavoritesActiveIcon /> : <AddFavoritesIcon />}
           </FavoritesIconWrapper>
           <SiteLink href={url} target="_blank">
             <WebSiteIcon />

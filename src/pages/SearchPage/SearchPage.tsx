@@ -66,7 +66,6 @@ export const SearchPage = memo(() => {
           <SearchTabInfo>
             {news.length ? "News:" : "Sorry, we haven't found anything for News 😕"}
           </SearchTabInfo>
-
           <BlogList posts={news} />
         </>
       )}
