@@ -18,6 +18,7 @@ import { AddFavoritesIcon, FavoritesActiveIcon, WebSiteIcon } from "assets";
 import { setImageNotFound } from "utils";
 import { BlogItem } from "types";
 import { getFavorites, getUser, useAppSelector } from "store";
+import { ROUTES } from "routes";
 
 interface BlogContentProps {
   blogListItem: BlogItem;
@@ -37,6 +38,7 @@ export const BlogContent = memo(({ blogListItem, handleClick }: BlogContentProps
   }, [navigate]);
 
   const handleSetFavorite = () => {
+    !isAuth && navigate(ROUTES.HOME + ROUTES.SIGN_IN);
     handleClick(blogListItem);
   };
 
