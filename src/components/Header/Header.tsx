@@ -14,7 +14,7 @@ export const Header = memo(() => {
   isMenuOpen && isMobile
     ? document.body.setAttribute("style", "overflow: hidden")
     : document.body.setAttribute("style", "overflow: 0");
-  //
+  // ToDo: Switch this nonsense to custom hook useLockBodyScroll()//
 
   return (
     <StyledHeader $isMenuOpen={isMenuOpen} $isMobile={isMobile}>
